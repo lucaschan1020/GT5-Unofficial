@@ -169,7 +169,7 @@ public interface IGT_RecipeAdder {
 
     /**
      * Adds a Chemical Recipe that only exists in the Large Chemical Reactor
-     * 
+     *
      * @param aInputs   item inputs
      * @param aFluidInputs fluid inputs
      * @param aFluidOutputs fluid outputs
@@ -178,7 +178,7 @@ public interface IGT_RecipeAdder {
      * @param aEUtick   must be > 0
      * <br>aInputs and aFluidInputs must contain at least one valid input.
      * <br>aOutputs and aFluidOutputs must contain at least one valid output.
-     * 
+     *
      */
 
     boolean addMultiblockChemicalRecipe(ItemStack[] aInputs, FluidStack[] aFluidInputs, FluidStack[] aFluidOutputs, ItemStack[] aOutputs, int aDuration, int aEUtick);
@@ -272,12 +272,12 @@ public interface IGT_RecipeAdder {
 
     /**
      * Adds an Assembler Recipe
-     * 
+     *
      * @param aInputs   must be != null
      * @param aOutput1  must be != null
      * @param aDuration must be > 0
      * @param aEUt      should be > 0
-     * 
+     *
      */
     boolean addAssemblerRecipe(ItemStack[] aInputs, FluidStack aFluidInput, ItemStack aOutput1, int aDuration, int aEUt);
 
@@ -352,6 +352,8 @@ public interface IGT_RecipeAdder {
      * @param aEUt      should be > 0
      */
     boolean addWiremillRecipe(ItemStack aInput, ItemStack aOutput, int aDuration, int aEUt);
+
+    boolean addCokeOvenRecipes(ItemStack aInput, ItemStack aOutput, FluidStack aFluidOutput, int aDuration);
 
     /**
      * Adds a Polariser Recipe

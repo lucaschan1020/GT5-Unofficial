@@ -249,6 +249,7 @@ public class Textures {
         MACHINE_CASING_RHODIUM_PALLADIUM,
         MACHINE_CASING_IRIDIUM,
         MACHINE_CASING_MAGICAL,
+        MACHINE_CASING_COKE_OVEN_BRICK,
 
         MACHINE_CASING_FIREBOX_TITANIUM,
         MACHINE_CASING_FUSION_COIL,
@@ -535,6 +536,9 @@ public class Textures {
         OVERLAY_FRONT_ELECTRIC_BLAST_FURNACE_GLOW,
         OVERLAY_FRONT_ELECTRIC_BLAST_FURNACE_ACTIVE,
         OVERLAY_FRONT_ELECTRIC_BLAST_FURNACE_ACTIVE_GLOW,
+
+        OVERLAY_FRONT_COKE_OVEN,
+        OVERLAY_FRONT_COKE_OVEN_ACTIVE,
         OVERLAY_FRONT_IMPLOSION_COMPRESSOR,
         OVERLAY_FRONT_IMPLOSION_COMPRESSOR_GLOW,
         OVERLAY_FRONT_IMPLOSION_COMPRESSOR_ACTIVE,
@@ -1833,6 +1837,7 @@ public class Textures {
             casingTexturePages[0] = new ITexture[128];
             //adds some known pages, modders also can do it...
             GT_Utility.addTexturePage((byte) 1);
+            GT_Utility.addTexturePage((byte) 7);
             GT_Utility.addTexturePage((byte) 8);
         }
 

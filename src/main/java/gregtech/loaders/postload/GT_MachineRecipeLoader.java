@@ -1755,6 +1755,7 @@ public class GT_MachineRecipeLoader implements Runnable {
                 Materials.Barite.getDust(4), Materials.Chromite.getDust(4), Materials.Ilmenite.getDust(4),
                 new int[]{10000, 10000, 10000, 10000, 7500, 5000}, 13125, 1920);
 
+        GT_Values.RA.addCokeOvenRecipes(GT_OreDictUnificator.get(OrePrefixes.log, Materials.Wood, 1L), GT_OreDictUnificator.get(OrePrefixes.gem, Materials.Charcoal, 1L), Materials.Creosote.getFluid(250), 100);
         this.run3();
 
         GT_Utility.removeSimpleIC2MachineRecipe(new ItemStack(Blocks.cobblestone), GT_ModHandler.getMaceratorRecipeList(), GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Stone, 1L));
@@ -4177,5 +4178,8 @@ public class GT_MachineRecipeLoader implements Runnable {
             GT_Values.RA.addMixerRecipe(EnumCube.COKE_BLOCK.getItem(), ItemList.MSFMixture.get(1), GT_ModHandler.getModItem(MOD_ID_TC, "ItemResource", 4), GT_Values.NI, GT_Values.NI, GT_Utility.getIntegratedCircuit(1), Materials.LPG.getFluid(375), null, ItemList.Block_MSSFUEL.get(1), 120, 96);
             //GT_Values.RA.addMixerRecipe(EnumCube.COKE_BLOCK.getItem(), ItemList.MSFMixture.get(1), GT_ModHandler.getModItem(MOD_ID_TC, "ItemResource", 4), null, Materials.LPG.getFluid(375), null, ItemList.Block_MSSFUEL.get(1), 120, 96);
         }
+
+        GT_Values.RA.addCokeOvenRecipes(GT_OreDictUnificator.get(OrePrefixes.gem, Materials.Coal, 1L), RailcraftToolItems.getCoalCoke(1), Materials.Creosote.getFluid(500), 10);
+        GT_Values.RA.addCokeOvenRecipes(Materials.Coal.getBlocks(1), EnumCube.COKE_BLOCK.getItem(1), Materials.Creosote.getFluid(4500), 90);
     }
 }

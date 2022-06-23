@@ -1,0 +1,11 @@
+- [x] Coke Oven Multi
+- [ ] Steam Macerator Multi
+- [ ] Steam Furnace Multi
+- [ ] BBF optional hatch
+- [ ] Auto Input hatch
+- [ ] Better crops
+- [ ] Tank auto void
+- [ ] Tank auto output
+- [ ] Machine Hull supports ME passthrough
+- [ ] Better casing yield (1 -> 2)
+- [ ] Salt & Rock salt 2x macerate amount (2 -> 4)

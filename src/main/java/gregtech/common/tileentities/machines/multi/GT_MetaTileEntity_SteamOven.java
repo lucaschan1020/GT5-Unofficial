@@ -13,51 +13,49 @@ import gregtech.api.metatileentity.implementations.*;
 import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_Recipe;
-import gregtech.common.gui.GT_GUIContainer_CokeOven;
-import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.FluidStack;
 
 import static com.gtnewhorizon.structurelib.structure.StructureUtility.transpose;
 import static gregtech.api.enums.Textures.BlockIcons.*;
 import static gregtech.api.util.GT_StructureUtility.ofHatchAdderOptional;
 
-public class GT_MetaTileEntity_CokeOven extends GT_MetaTileEntity_PrimitiveMultiBlockBase<GT_MetaTileEntity_CokeOven> implements ISecondaryDescribable {
-
-    protected static final int TEXTURE_PAGE_INDEX = 7;
-    protected static final int CASING_INDEX = 0;
+public class GT_MetaTileEntity_SteamOven extends GT_MetaTileEntity_PrimitiveMultiBlockBase<GT_MetaTileEntity_SteamOven> implements ISecondaryDescribable {
+    protected static final int TEXTURE_PAGE_INDEX = 0;
+    protected static final int CASING_INDEX = 10;
+    protected static final int PIPE_INDEX = 45;
     protected static final String STRUCTURE_PIECE_MAIN = "main";
-    private static final IStructureDefinition<GT_MetaTileEntity_CokeOven> STRUCTURE_DEFINITION = StructureDefinition.<GT_MetaTileEntity_CokeOven>builder()
+    private static final IStructureDefinition<GT_MetaTileEntity_SteamOven> STRUCTURE_DEFINITION = StructureDefinition.<GT_MetaTileEntity_SteamOven>builder()
         .addShape(STRUCTURE_PIECE_MAIN, transpose(new String[][]{
-            {"CCC", "CCC", "CCC"},
+            {" C ", " C ", " C "},
             {"C~C", "C-C", "CCC"},
-            {"CCC", "CCC", "CCC"}
+            {"FFF", "FFF", "FFF"}
         }))
-        .addElement('C', ofHatchAdderOptional(GT_MetaTileEntity_CokeOven::addHatch, (TEXTURE_PAGE_INDEX * 128) + CASING_INDEX, 1, GregTech_API.sBlockCasingsCustom, CASING_INDEX))
+        .addElement('C', ofHatchAdderOptional(GT_MetaTileEntity_SteamOven::addIOHatch, (TEXTURE_PAGE_INDEX * 128) + CASING_INDEX, 1, GregTech_API.sBlockCasings1, 10))
+        .addElement('F', ofHatchAdderOptional(GT_MetaTileEntity_SteamOven::addSteamHatch, (TEXTURE_PAGE_INDEX * 128) + PIPE_INDEX, 1, GregTech_API.sBlockCasings3, 13))
         .build();
 
-    public GT_MetaTileEntity_CokeOven(int aID, String aName, String aNameRegional) {
+    public GT_MetaTileEntity_SteamOven(int aID, String aName, String aNameRegional) {
         super(aID, aName, aNameRegional);
     }
 
-    public GT_MetaTileEntity_CokeOven(String aName) {
+    public GT_MetaTileEntity_SteamOven(String aName) {
         super(aName);
     }
 
     @Override
     protected GT_Multiblock_Tooltip_Builder createTooltip() {
         GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
-        tt.addMachineType("Coke Oven")
-            .addInfo("Controller block for the Coke Oven")
-            .addInfo("More coal coke and charcoal!")
-            .addPollutionAmount(GT_Mod.gregtechproxy.mPollutionCokeOvenPerSecond)
+        tt.addMachineType("Furnace")
+            .addInfo("Controller block for the Steam Oven")
+            .addInfo("Multi furnace steam powered HAYO!")
+            .addPollutionAmount(GT_Mod.gregtechproxy.mPollutionSteamOvenPerSecond)
             .addSeparator()
             .beginStructureBlock(3, 3, 3, true)
             .addController("Front center")
-            .addCasingInfo("Coke Oven Brick", 0)
-            .addInputBus("Any Coke Oven Brick", 1)
-            .addOutputBus("Any Coke Oven Brick", 1)
-            .addOutputHatch("Any Coke Oven Brick", 1)
+            .addCasingInfo("Bronze Plated Bricks on top 2 layers", 0)
+            .addCasingInfo("Bronze Firebox Casing on bottom layer", 0)
+            .addInputBus("Any Input Bus (Steam only)", 1)
+            .addOutputBus("Any Output Bus (Steam only)", 1)
             .toolTipFinisher("Gregtech");
         return tt;
     }
@@ -68,28 +66,24 @@ public class GT_MetaTileEntity_CokeOven extends GT_MetaTileEntity_PrimitiveMulti
             if (aActive)
                 return new ITexture[]{
                     casingTexturePages[TEXTURE_PAGE_INDEX][CASING_INDEX],
-                    TextureFactory.builder().addIcon(OVERLAY_FRONT_COKE_OVEN_ACTIVE).extFacing().build(),
-                    TextureFactory.builder().addIcon(MACHINE_CASING_BRICKEDBLASTFURNACE_ACTIVE_GLOW).extFacing().glow().build()};
+                    TextureFactory.builder().addIcon(OVERLAY_FRONT_STEAM_FURNACE_ACTIVE).extFacing().build(),
+                    TextureFactory.builder().addIcon(OVERLAY_FRONT_STEAM_FURNACE_ACTIVE_GLOW).extFacing().glow().build()};
             return new ITexture[]{
                 casingTexturePages[TEXTURE_PAGE_INDEX][CASING_INDEX],
-                TextureFactory.builder().addIcon(OVERLAY_FRONT_COKE_OVEN).extFacing().build()};
+                TextureFactory.builder().addIcon(OVERLAY_FRONT_STEAM_FURNACE).extFacing().build(),
+                TextureFactory.builder().addIcon(OVERLAY_FRONT_STEAM_FURNACE_GLOW).extFacing().glow().build()};
         }
         return new ITexture[]{casingTexturePages[TEXTURE_PAGE_INDEX][CASING_INDEX]};
     }
 
     @Override
     public MetaTileEntity newMetaEntity(IGregTechTileEntity aTileEntity) {
-        return new GT_MetaTileEntity_CokeOven(this.mName);
+        return new GT_MetaTileEntity_SteamOven(this.mName);
     }
 
     @Override
     public void construct(ItemStack stackSize, boolean hintsOnly) {
         buildPiece(STRUCTURE_PIECE_MAIN, stackSize, hintsOnly, 1,1,0);
-    }
-
-    @Override
-    public Object getClientGUI(int aID, InventoryPlayer aPlayerInventory, IGregTechTileEntity aBaseMetaTileEntity) {
-        return new GT_GUIContainer_CokeOven(aPlayerInventory, aBaseMetaTileEntity, getLocalName(), "CokeOven.png");
     }
 
     @Override
@@ -107,19 +101,30 @@ public class GT_MetaTileEntity_CokeOven extends GT_MetaTileEntity_PrimitiveMulti
     }
 
     @Override
-    public IStructureDefinition<GT_MetaTileEntity_CokeOven> getStructureDefinition() {
+    public IStructureDefinition<GT_MetaTileEntity_SteamOven> getStructureDefinition() {
         return STRUCTURE_DEFINITION;
     }
 
-    protected boolean addHatch(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
+    protected boolean addIOHatch(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
         if (aTileEntity != null) {
             IMetaTileEntity aMetaTileEntity = aTileEntity.getMetaTileEntity();
-            if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_PrimitiveInputBus) {
+            if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_PrimitiveInputBus || aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_PrimitiveInput) {
                 addInputToMachineList(aTileEntity, aBaseCasingIndex);
                 return true;
             }
             else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_PrimitiveOutputBus || aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_PrimitiveOutput) {
                 addOutputToMachineList(aTileEntity, aBaseCasingIndex);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    protected boolean addSteamHatch(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
+        if (aTileEntity != null) {
+            IMetaTileEntity aMetaTileEntity = aTileEntity.getMetaTileEntity();
+            if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_PrimitiveSteamInput) {
+                addInputToMachineList(aTileEntity, aBaseCasingIndex);
                 return true;
             }
         }
@@ -132,46 +137,7 @@ public class GT_MetaTileEntity_CokeOven extends GT_MetaTileEntity_PrimitiveMulti
     }
 
     @Override
-    public boolean checkRecipe(ItemStack aStack) {
-        return processRecipe(getCompactedInputs());
-    }
-
-    protected boolean processRecipe(ItemStack[] tItems) {
-        if (tItems.length <= 0)
-            return false;
-
-        GT_Recipe tRecipe = getRecipeMap().findRecipe(getBaseMetaTileEntity(), false, 0, null, tItems);
-
-        if (tRecipe == null)
-            return false;
-
-        if (!tRecipe.isRecipeInputEqual(true, null, tItems))
-            return false;
-
-        this.mMaxProgresstime = tRecipe.mDuration;
-        this.mEfficiency = 10000;
-        this.mOutputItems = new ItemStack[]{
-            tRecipe.getOutput(0)
-        };
-        this.mOutputFluids = new FluidStack[]{
-            tRecipe.getFluidOutput(0)
-        };
-        updateSlots();
-        return true;
-    }
-
-    @Override
-    public int getMaxParallelRecipes() {
-        return 1;
-    }
-
-    @Override
-    public float getRecipeDurationMultiplier(){
-        return 1f;
-    }
-
-    @Override
     public GT_Recipe.GT_Recipe_Map getRecipeMap() {
-        return GT_Recipe.GT_Recipe_Map.sCokeOvenRecipes;
+        return GT_Recipe.GT_Recipe_Map.sFurnaceRecipes;
     }
 }

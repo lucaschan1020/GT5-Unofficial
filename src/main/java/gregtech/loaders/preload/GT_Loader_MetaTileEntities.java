@@ -101,7 +101,9 @@ public class GT_Loader_MetaTileEntities implements Runnable {//TODO CHECK CIRCUI
         ItemList.Machine_Bricked_BlastFurnace.set(new GT_MetaTileEntity_BrickedBlastFurnace(140, "multimachine.brickedblastfurnace", "Bricked Blast Furnace").getStackForm(1L));
         GT_ModHandler.addCraftingRecipe(ItemList.Machine_Bricked_BlastFurnace.get(1L), GT_ModHandler.RecipeBits.NOT_REMOVABLE | GT_ModHandler.RecipeBits.BUFFERED, new Object[]{"BFB", "FwF", "BFB", 'B', ItemList.Casing_Firebricks, 'F', OreDictNames.craftingIronFurnace});
 
-        ItemList.Machine_Coke_Oven.set(new GT_MetaTileEntity_CokeOven(701, "multimachine.cokeoven", "Coke Oven").getStackForm(1L));
+        ItemList.Machine_Coke_Oven.set(new GT_MetaTileEntity_CokeOven(28000, "multimachine.cokeoven", "Coke Oven").getStackForm(1L));
+        ItemList.Machine_Steam_Oven.set(new GT_MetaTileEntity_SteamOven(28001, "multimachine.steamoven", "Steam Oven").getStackForm(1L));
+        ItemList.Machine_Steam_Grinder.set(new GT_MetaTileEntity_SteamGrinder(28002, "multimachine.steamgrinder", "Steam Grinder").getStackForm(1L));
 
         ItemList.Hull_Bronze.set(new GT_MetaTileEntity_BasicHull_Bronze(1, "hull.bronze", "Bronze Hull", 0, "For your first Steam Machines").getStackForm(1L));
         ItemList.Hull_Bronze_Bricks.set(new GT_MetaTileEntity_BasicHull_BronzeBricks(2, "hull.bronze_bricked", "Bricked Bronze Hull", 0, "For your first Steam Machines").getStackForm(1L));
@@ -294,6 +296,11 @@ public class GT_Loader_MetaTileEntities implements Runnable {//TODO CHECK CIRCUI
         ItemList.Hatch_Output_Bus_MAX.set(new GT_MetaTileEntity_Hatch_OutputBus(89, "hatch.output_bus.tier.09", "Output Bus (UHV)", 9).getStackForm(1L));
 
         ItemList.Hatch_Maintenance.set(new GT_MetaTileEntity_Hatch_Maintenance(90, "hatch.maintenance", "Maintenance Hatch", 1).getStackForm(1L));
+        ItemList.Hatch_Input_Steam.set(new GT_MetaTileEntity_Hatch_PrimitiveSteamInput(27000, "hatch.steaminput.tier.primitive", "Steam Hatch", 0).getStackForm(1L));
+        ItemList.Hatch_Input_Bus_Primitive.set(new GT_MetaTileEntity_Hatch_PrimitiveInputBus(27001, "hatch.input_bus.tier.primitive", "Input Bus (Primitive)", 0).getStackForm(1L));
+        ItemList.Hatch_Input_Primitive.set(new GT_MetaTileEntity_Hatch_PrimitiveInput(27002, "hatch.input.tier.primitive", "Input Hatch (Primitive)", 0).getStackForm(1L));
+        ItemList.Hatch_Output_Bus_Primitive.set(new GT_MetaTileEntity_Hatch_PrimitiveOutputBus(27003, "hatch.output_bus.tier.primitive", "Output Bus (Primitive)", 0).getStackForm(1L));
+        ItemList.Hatch_Output_Primitive.set(new GT_MetaTileEntity_Hatch_PrimitiveOutput(27004,"hatch.output.tier.primitive", "Output Hatch (Primitive)", 0).getStackForm(1L));
 
         GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Maintenance.get(1L), bitsd, new Object[]{"dwx", "hMc", "fsr", 'M', ItemList.Hull_LV});
         GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Maintenance.get(1L), bitsd, new Object[]{"dwx", "hMC", "fsr", 'M', ItemList.Hull_LV, 'C', GT_ModHandler.getModItem("Railcraft", "tool.crowbar", 1L, 0)});

@@ -1,6 +1,6 @@
 - [x] Coke Oven Multi
-- [ ] Steam Macerator Multi
-- [ ] Steam Furnace Multi
+- [x] Steam Macerator Multi
+- [x] Steam Furnace Multi
 - [ ] BBF optional hatch
 - [ ] Auto Input hatch
 - [ ] Better crops

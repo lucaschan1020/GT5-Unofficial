@@ -8,7 +8,6 @@ import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.objects.GT_ItemStack;
 import gregtech.api.util.*;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
 import org.apache.commons.lang3.ArrayUtils;
 import org.lwjgl.input.Keyboard;
@@ -266,7 +265,6 @@ public abstract class GT_MetaTileEntity_PrimitiveMultiBlockBase<T extends GT_Met
             if (tRecipe.mOutputs == null && tRecipe.mFluidOutputs == null) {
                 break;
             }
-
             tHighestRecipeDuration = Math.max(tHighestRecipeDuration, tRecipe.mDuration);
             GT_Parallel_Recipe tDetectedRecipe = new GT_Parallel_Recipe(tRecipe);
             // Count recipes to do in parallel, consuming input items and fluids
@@ -277,6 +275,8 @@ public abstract class GT_MetaTileEntity_PrimitiveMultiBlockBase<T extends GT_Met
                 tDetectedRecipe.mParallelCount++;
             }
             tParallelRecipes.add(tDetectedRecipe);
+            aItemInputs = stripZeroStacks(aItemInputs);
+            aFluidInputs = stripZeroStacks(aFluidInputs);
         }
 
         if (tTotalDetectedParallelCount == 0) return false;
@@ -329,11 +329,7 @@ public abstract class GT_MetaTileEntity_PrimitiveMultiBlockBase<T extends GT_Met
         if (tOutputFluids != null) {
             tOutputFluids = withoutNulls(tOutputFluids, FluidStack[]::new);
             // Strip empty stacks
-            List<FluidStack> tSList = new ArrayList<>();
-            for (FluidStack tS : tOutputFluids) {
-                if (tS.amount > 0) tSList.add(tS);
-            }
-            tOutputFluids = tSList.toArray(new FluidStack[0]);
+            tOutputFluids = stripZeroStacks(tOutputFluids);
         }
 
         if (tOutputItems != null) {
@@ -356,11 +352,7 @@ public abstract class GT_MetaTileEntity_PrimitiveMultiBlockBase<T extends GT_Met
             }
 
             // Strip empty stacks
-            List<ItemStack> tSList = new ArrayList<>();
-            for (ItemStack tS : tOutputItems) {
-                if (tS.stackSize > 0) tSList.add(tS);
-            }
-            tOutputItems = tSList.toArray(new ItemStack[0]);
+            tOutputItems = stripZeroStacks(tOutputItems);
         }
 
         // Commit outputs
@@ -414,6 +406,28 @@ public abstract class GT_MetaTileEntity_PrimitiveMultiBlockBase<T extends GT_Met
         }
         if (tOutputItems.size() == 0) return null;
         return tOutputItems.toArray(new ItemStack[0]);
+    }
+
+    public ItemStack[] stripZeroStacks(ItemStack[] aItems) {
+        int j = 0;
+        for(int i = 0; i < aItems.length; i++)
+        {
+            if(aItems[i].stackSize > 0) aItems[j++] = aItems[i];
+        }
+        ItemStack[] tNonZeroStackItems = new ItemStack[j];
+        System.arraycopy(aItems, 0, tNonZeroStackItems, 0, j);
+        return tNonZeroStackItems;
+    }
+
+    public FluidStack[] stripZeroStacks(FluidStack[] aFluids) {
+        int j = 0;
+        for(int i = 0; i < aFluids.length; i++)
+        {
+            if(aFluids[i].amount > 0) aFluids[j++] = aFluids[i];
+        }
+        FluidStack[] tNonZeroStackFluids = new FluidStack[j];
+        System.arraycopy(aFluids, 0, tNonZeroStackFluids, 0, j);
+        return tNonZeroStackFluids;
     }
 
     public int getTotalSteamStored() {

@@ -90,7 +90,7 @@ public class GT_UndergroundOil {
                 // decrease= ceil from 3.9 = 4
                 // decrease-averageDecrease=0.1 -> chance to subtract 1
                 // if XSTR_INSTANCE is < chance then subtract 1
-                chunkData.changeAmount(-decrease);//diminish amount, "randomly" adjusted to double value (averageDecrease)
+                chunkData.changeAmount(0);//diminish amount, "randomly" adjusted to double value (averageDecrease)
             }
         }
         else {//just get info

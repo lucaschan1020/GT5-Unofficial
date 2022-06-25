@@ -8,5 +8,8 @@
 - [ ] Tank auto void
 - [ ] Tank auto output
 - [ ] Machine Hull supports ME pass through
-- [ ] Better casing yield (1 -> 2)
+- [x] Better casing yield (1 -> 2)
+- [ ] Add recipe for new multiblocks
 - [ ] Salt & Rock salt 2x macerate amount (2 -> 4)
+- [ ] Tank fluid lock in fluid slot bug
+- [ ] Oil drill does not deplete

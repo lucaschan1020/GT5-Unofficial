@@ -12,4 +12,4 @@
 - [ ] Add recipe for new multiblocks
 - [ ] Salt & Rock salt 2x macerate amount (2 -> 4)
 - [ ] Tank fluid lock in fluid slot bug
-- [ ] Oil drill does not deplete
+- [x] Oil drill does not deplete

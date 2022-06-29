@@ -7,7 +7,7 @@
 - [ ] Better crops
 - [x] Tank auto void
 - [x] Tank auto output
-- [ ] Machine Hull supports ME pass through
+- [x] Machine Hull supports ME pass through
 - [x] Better casing yield (1 -> 2)
 - [ ] Add recipe for new multiblocks
 - [ ] Tank fluid lock in fluid slot bug

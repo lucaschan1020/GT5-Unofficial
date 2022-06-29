@@ -5,11 +5,10 @@
 - [ ] BBF optional hatch
 - [ ] Auto Input hatch
 - [ ] Better crops
-- [ ] Tank auto void
-- [ ] Tank auto output
+- [x] Tank auto void
+- [x] Tank auto output
 - [ ] Machine Hull supports ME pass through
 - [x] Better casing yield (1 -> 2)
 - [ ] Add recipe for new multiblocks
-- [ ] Salt & Rock salt 2x macerate amount (2 -> 4)
 - [ ] Tank fluid lock in fluid slot bug
 - [x] Oil drill does not deplete

@@ -80,7 +80,7 @@ public class GT_MetaTileEntity_SteamGrinder extends GT_MetaTileEntity_PrimitiveM
 
     @Override
     public void construct(ItemStack stackSize, boolean hintsOnly) {
-        buildPiece(STRUCTURE_PIECE_MAIN, stackSize, hintsOnly, 1,1,0);
+        buildPiece(STRUCTURE_PIECE_MAIN, stackSize, hintsOnly, 1, 1, 0);
     }
 
     @Override
@@ -108,18 +108,12 @@ public class GT_MetaTileEntity_SteamGrinder extends GT_MetaTileEntity_PrimitiveM
             if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_PrimitiveInputBus || aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_PrimitiveInput || aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_PrimitiveSteamInput) {
                 addInputToMachineList(aTileEntity, aBaseCasingIndex);
                 return true;
-            }
-            else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_PrimitiveOutputBus || aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_PrimitiveOutput) {
+            } else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_PrimitiveOutputBus || aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_PrimitiveOutput) {
                 addOutputToMachineList(aTileEntity, aBaseCasingIndex);
                 return true;
             }
         }
         return false;
-    }
-
-    @Override
-    public void onMachineBlockUpdate() {
-        this.mUpdate = 5;
     }
 
     @Override

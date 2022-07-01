@@ -10,11 +10,14 @@ import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Utility;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.StatCollector;
 
 import static gregtech.api.enums.Textures.BlockIcons.ITEM_IN_SIGN;
 import static gregtech.api.enums.Textures.BlockIcons.OVERLAY_PIPE_IN;
+import static gregtech.api.util.GT_Utility.moveMultipleItemStacks;
 
 public class GT_MetaTileEntity_Hatch_PrimitiveInputBus extends GT_MetaTileEntity_Hatch {
     public GT_Recipe.GT_Recipe_Map mRecipeMap = null;
@@ -85,6 +88,12 @@ public class GT_MetaTileEntity_Hatch_PrimitiveInputBus extends GT_MetaTileEntity
 
     @Override
     public void onPostTick(IGregTechTileEntity aBaseMetaTileEntity, long aTimer) {
+        if (aBaseMetaTileEntity.isServerSide() && aBaseMetaTileEntity.isAllowedToWork() && (aTimer & 0x7) == 0) {
+            IInventory tTileEntity = aBaseMetaTileEntity.getIInventoryAtSide(aBaseMetaTileEntity.getFrontFacing());
+            if (tTileEntity != null) {
+                moveMultipleItemStacks(tTileEntity, aBaseMetaTileEntity, aBaseMetaTileEntity.getBackFacing(), aBaseMetaTileEntity.getFrontFacing(), null, false, (byte) 64, (byte) 1, (byte) 64, (byte) 1, tTileEntity.getSizeInventory());
+            }
+        }
         if (aBaseMetaTileEntity.isServerSide() && aBaseMetaTileEntity.hasInventoryBeenModified()) {
             fillStacksIntoFirstSlots();
         }
@@ -129,7 +138,7 @@ public class GT_MetaTileEntity_Hatch_PrimitiveInputBus extends GT_MetaTileEntity
     public void onScrewdriverRightClick(byte aSide, EntityPlayer aPlayer, float aX, float aY, float aZ) {
         if (aPlayer.isSneaking()) {
             disableSort = !disableSort;
-            GT_Utility.sendChatToPlayer(aPlayer, trans("200", "Automatic Item Shuffling: " + (disableSort ? "Disabled" : "Enabled")));
+            GT_Utility.sendChatToPlayer(aPlayer, StatCollector.translateToLocal("GT5U.hatch.disableSort." + disableSort));
         }
     }
 

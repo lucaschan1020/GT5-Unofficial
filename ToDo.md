@@ -2,8 +2,8 @@
 - [x] Steam Macerator Multi
 - [x] Steam Furnace Multi
 - [x] Faster conveyor belt tick rate
-- [ ] BBF optional hatch
-- [ ] Auto Input hatch
+- [x] BBF optional hatch (mandatory due to tight couple on existing code)
+- [x] Auto Input hatch
 - [ ] Better crops
 - [x] Tank auto void
 - [x] Tank auto output

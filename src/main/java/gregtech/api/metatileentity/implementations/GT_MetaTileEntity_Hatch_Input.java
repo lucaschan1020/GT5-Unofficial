@@ -10,7 +10,10 @@ import gregtech.api.util.GT_Utility;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.IFluidHandler;
+import scala.Int;
 
 import static gregtech.api.enums.Textures.BlockIcons.FLUID_IN_SIGN;
 import static gregtech.api.enums.Textures.BlockIcons.OVERLAY_PIPE_IN;
@@ -64,6 +67,23 @@ public class GT_MetaTileEntity_Hatch_Input extends GT_MetaTileEntity_Hatch {
     @Override
     public MetaTileEntity newMetaEntity(IGregTechTileEntity aTileEntity) {
         return new GT_MetaTileEntity_Hatch_Input(mName, mTier, mDescriptionArray, mTextures);
+    }
+
+    @Override
+    public void onPostTick(IGregTechTileEntity aBaseMetaTileEntity, long aTick) {
+        super.onPostTick(aBaseMetaTileEntity, aTick);
+        if (aBaseMetaTileEntity.isServerSide() && aBaseMetaTileEntity.isAllowedToWork() && (aTick & 0x7) == 0) {
+            IFluidHandler tTileEntity = aBaseMetaTileEntity.getITankContainerAtSide(aBaseMetaTileEntity.getFrontFacing());
+            if (tTileEntity != null) {
+                FluidStack tDrained = tTileEntity.drain(ForgeDirection.getOrientation(aBaseMetaTileEntity.getBackFacing()), Integer.MAX_VALUE, false);
+                if (tDrained != null) {
+                    int tFilledAmount = aBaseMetaTileEntity.fill(ForgeDirection.getOrientation(aBaseMetaTileEntity.getFrontFacing()), tDrained, false);
+                    if (tFilledAmount > 0) {
+                        aBaseMetaTileEntity.fill(ForgeDirection.getOrientation(aBaseMetaTileEntity.getFrontFacing()), tTileEntity.drain(ForgeDirection.getOrientation(aBaseMetaTileEntity.getBackFacing()), tFilledAmount, true), true);
+                    }
+                }
+            }
+        }
     }
 
     @Override

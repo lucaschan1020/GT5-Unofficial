@@ -12,7 +12,6 @@ import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_PrimitiveInputBus;
-import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_PrimitiveOutput;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_PrimitiveOutputBus;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_PrimitiveMultiBlockBase;
 import gregtech.api.render.TextureFactory;
@@ -116,10 +115,10 @@ public class GT_MetaTileEntity_BrickedBlastFurnace extends GT_MetaTileEntity_Pri
     protected boolean addHatch(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
         if (aTileEntity != null) {
             IMetaTileEntity aMetaTileEntity = aTileEntity.getMetaTileEntity();
-            if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_PrimitiveInputBus) {
+            if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_PrimitiveInputBus && aMetaTileEntity.getBaseMetaTileEntity().getMetaTileID() == 27010) {
                 addInputToMachineList(aTileEntity, aBaseCasingIndex);
                 return true;
-            } else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_PrimitiveOutputBus || aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_PrimitiveOutput) {
+            } else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_PrimitiveOutputBus && aMetaTileEntity.getBaseMetaTileEntity().getMetaTileID() == 27011) {
                 addOutputToMachineList(aTileEntity, aBaseCasingIndex);
                 return true;
             }

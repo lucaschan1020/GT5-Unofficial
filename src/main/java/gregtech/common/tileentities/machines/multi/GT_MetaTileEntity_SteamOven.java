@@ -108,10 +108,13 @@ public class GT_MetaTileEntity_SteamOven extends GT_MetaTileEntity_PrimitiveMult
     protected boolean addIOHatch(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
         if (aTileEntity != null) {
             IMetaTileEntity aMetaTileEntity = aTileEntity.getMetaTileEntity();
-            if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_PrimitiveInputBus || aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_PrimitiveInput) {
+            if ((aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_PrimitiveInputBus && aMetaTileEntity.getBaseMetaTileEntity().getMetaTileID() == 27003) ||
+                (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_PrimitiveInput && aMetaTileEntity.getBaseMetaTileEntity().getMetaTileID() == 27001) ||
+                aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_PrimitiveSteamInput) {
                 addInputToMachineList(aTileEntity, aBaseCasingIndex);
                 return true;
-            } else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_PrimitiveOutputBus || aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_PrimitiveOutput) {
+            } else if ((aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_PrimitiveOutputBus && aMetaTileEntity.getBaseMetaTileEntity().getMetaTileID() == 27004) ||
+                (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_PrimitiveOutput && aMetaTileEntity.getBaseMetaTileEntity().getMetaTileID() == 27002)) {
                 addOutputToMachineList(aTileEntity, aBaseCasingIndex);
                 return true;
             }

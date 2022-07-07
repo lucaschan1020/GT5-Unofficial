@@ -9,7 +9,10 @@ import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.MetaTileEntity;
-import gregtech.api.metatileentity.implementations.*;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_PrimitiveInputBus;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_PrimitiveOutput;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_PrimitiveOutputBus;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_PrimitiveMultiBlockBase;
 import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GT_Multiblock_Tooltip_Builder;
 import gregtech.api.util.GT_Recipe;
@@ -114,10 +117,11 @@ public class GT_MetaTileEntity_CokeOven extends GT_MetaTileEntity_PrimitiveMulti
     protected boolean addHatch(IGregTechTileEntity aTileEntity, int aBaseCasingIndex) {
         if (aTileEntity != null) {
             IMetaTileEntity aMetaTileEntity = aTileEntity.getMetaTileEntity();
-            if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_PrimitiveInputBus) {
+            if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_PrimitiveInputBus && aMetaTileEntity.getBaseMetaTileEntity().getMetaTileID() == 27007) {
                 addInputToMachineList(aTileEntity, aBaseCasingIndex);
                 return true;
-            } else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_PrimitiveOutputBus || aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_PrimitiveOutput) {
+            } else if ((aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_PrimitiveOutputBus && aMetaTileEntity.getBaseMetaTileEntity().getMetaTileID() == 27008) ||
+                (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_PrimitiveOutput && aMetaTileEntity.getBaseMetaTileEntity().getMetaTileID() == 27006)) {
                 addOutputToMachineList(aTileEntity, aBaseCasingIndex);
                 return true;
             }

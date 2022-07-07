@@ -976,7 +976,8 @@ public enum ItemList implements IItemContainer {
     Hatch_Input_UV,
     Hatch_Input_MAX,
     Hatch_Input_Steam,
-
+    Hatch_Input_Bus_CokeOven,
+    Hatch_Input_Bus_BrickedBlastFurnace,
     Hatch_Input_Bus_Primitive,
     Hatch_Input_Bus_ULV,
     Hatch_Input_Bus_LV,
@@ -989,6 +990,7 @@ public enum ItemList implements IItemContainer {
     Hatch_Input_Bus_UV,
     Hatch_Input_Bus_MAX,
 
+    Hatch_Output_CokeOven,
     Hatch_Output_Primitive,
     Hatch_Output_ULV,
     Hatch_Output_LV,
@@ -1001,6 +1003,9 @@ public enum ItemList implements IItemContainer {
     Hatch_Output_UV,
     Hatch_Output_MAX,
 
+    Hatch_Output_Bus_CokeOven,
+
+    Hatch_Output_Bus_BrickedBlastFurnace,
     Hatch_Output_Bus_Primitive,
     Hatch_Output_Bus_ULV,
     Hatch_Output_Bus_LV,

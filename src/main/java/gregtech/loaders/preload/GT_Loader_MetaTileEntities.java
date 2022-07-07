@@ -296,12 +296,6 @@ public class GT_Loader_MetaTileEntities implements Runnable {//TODO CHECK CIRCUI
         ItemList.Hatch_Output_Bus_MAX.set(new GT_MetaTileEntity_Hatch_OutputBus(89, "hatch.output_bus.tier.09", "Output Bus (UHV)", 9).getStackForm(1L));
 
         ItemList.Hatch_Maintenance.set(new GT_MetaTileEntity_Hatch_Maintenance(90, "hatch.maintenance", "Maintenance Hatch", 1).getStackForm(1L));
-        ItemList.Hatch_Input_Steam.set(new GT_MetaTileEntity_Hatch_PrimitiveSteamInput(27000, "hatch.steaminput.tier.primitive", "Steam Hatch", 0).getStackForm(1L));
-        ItemList.Hatch_Input_Bus_Primitive.set(new GT_MetaTileEntity_Hatch_PrimitiveInputBus(27001, "hatch.input_bus.tier.primitive", "Input Bus (Primitive)", 0).getStackForm(1L));
-        ItemList.Hatch_Input_Primitive.set(new GT_MetaTileEntity_Hatch_PrimitiveInput(27002, "hatch.input.tier.primitive", "Input Hatch (Primitive)", 0).getStackForm(1L));
-        ItemList.Hatch_Output_Bus_Primitive.set(new GT_MetaTileEntity_Hatch_PrimitiveOutputBus(27003, "hatch.output_bus.tier.primitive", "Output Bus (Primitive)", 0).getStackForm(1L));
-        ItemList.Hatch_Output_Primitive.set(new GT_MetaTileEntity_Hatch_PrimitiveOutput(27004,"hatch.output.tier.primitive", "Output Hatch (Primitive)", 0).getStackForm(1L));
-
         GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Maintenance.get(1L), bitsd, new Object[]{"dwx", "hMc", "fsr", 'M', ItemList.Hull_LV});
         GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Maintenance.get(1L), bitsd, new Object[]{"dwx", "hMC", "fsr", 'M', ItemList.Hull_LV, 'C', GT_ModHandler.getModItem("Railcraft", "tool.crowbar", 1L, 0)});
         GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Maintenance.get(1L), bitsd, new Object[]{"dwx", "hMC", "fsr", 'M', ItemList.Hull_LV, 'C', GT_ModHandler.getModItem("Railcraft", "tool.crowbar.reinforced", 1L, 0)});
@@ -501,6 +495,31 @@ public class GT_Loader_MetaTileEntities implements Runnable {//TODO CHECK CIRCUI
         GT_ModHandler.addCraftingRecipe(ItemList.Locker_ZPM.get(1L), bitsd, new Object[]{"T", "M", 'M', ItemList.Battery_Buffer_2by2_ZPM, 'T', OreDictNames.craftingChest});
         GT_ModHandler.addCraftingRecipe(ItemList.Locker_UV.get(1L), bitsd, new Object[]{"T", "M", 'M', ItemList.Battery_Buffer_2by2_UV, 'T', OreDictNames.craftingChest});
         GT_ModHandler.addCraftingRecipe(ItemList.Locker_MAX.get(1L), bitsd, new Object[]{"T", "M", 'M', ItemList.Battery_Buffer_2by2_MAX, 'T', OreDictNames.craftingChest});
+
+        ItemList.Hatch_Input_Steam.set(new GT_MetaTileEntity_Hatch_PrimitiveSteamInput(27000, "hatch.steaminput.tier.primitive", "Steam Hatch", 0).getStackForm(1L));
+        ItemList.Hatch_Input_Primitive.set(new GT_MetaTileEntity_Hatch_PrimitiveInput(27001, "hatch.input.tier.primitive", "Input Hatch (Primitive)", 0).getStackForm(1L));
+        ItemList.Hatch_Output_Primitive.set(new GT_MetaTileEntity_Hatch_PrimitiveOutput(27002,"hatch.output.tier.primitive", "Output Hatch (Primitive)", 0).getStackForm(1L));
+        ItemList.Hatch_Input_Bus_Primitive.set(new GT_MetaTileEntity_Hatch_PrimitiveInputBus(27003, "hatch.input_bus.tier.primitive", "Input Bus (Primitive)", 0).getStackForm(1L));
+        ItemList.Hatch_Output_Bus_Primitive.set(new GT_MetaTileEntity_Hatch_PrimitiveOutputBus(27004, "hatch.output_bus.tier.primitive", "Output Bus (Primitive)", 0).getStackForm(1L));
+        ItemList.Hatch_Output_CokeOven.set(new GT_MetaTileEntity_Hatch_PrimitiveOutput(27006, "hatch.output.tier.cokeoven", "Output Hatch (Coke Oven)", 0).getStackForm(1L));
+        ItemList.Hatch_Input_Bus_CokeOven.set(new GT_MetaTileEntity_Hatch_PrimitiveInputBus(27007, "hatch.input_bus.tier.cokeoven", "Input Bus (Coke Oven)", 0).getStackForm(1L));
+        ItemList.Hatch_Output_Bus_CokeOven.set(new GT_MetaTileEntity_Hatch_PrimitiveOutputBus(27008, "hatch.output_bus.tier.cokeoven", "Output Bus (Coke Oven)", 0).getStackForm(1L));
+        ItemList.Hatch_Input_Bus_BrickedBlastFurnace.set(new GT_MetaTileEntity_Hatch_PrimitiveInputBus(27010, "hatch.input_bus.tier.brickedblastfurnace", "Input Bus (Bricked Blast Furnace)", 0).getStackForm(1L));
+        ItemList.Hatch_Output_Bus_BrickedBlastFurnace.set(new GT_MetaTileEntity_Hatch_PrimitiveOutputBus(27011, "hatch.output_bus.tier.brickedblastfurnace", "Output Bus (Bricked Blast Furnace)", 0).getStackForm(1L));
+
+        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Input_Steam.get(1L), bitsd, new Object[]{"PIP", "PCP", "PIP", 'P', OrePrefixes.plate.get(Materials.Bronze), 'I', OrePrefixes.pipeMedium.get(Materials.Bronze), 'C', ItemList.Hull_Bronze});
+        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Input_Primitive.get(1L), bitsd, new Object[]{" I ", " C ", 'I', GT_OreDictUnificator.get(OrePrefixes.bucket, Materials.Empty, 1L), 'C', ItemList.Hull_Bronze});
+        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Output_Primitive.get(1L), bitsd, new Object[]{" C ", " O ", 'O', GT_OreDictUnificator.get(OrePrefixes.bucket, Materials.Empty, 1L), 'C', ItemList.Hull_Bronze});
+        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Input_Bus_Primitive.get(1L), bitsd, new Object[]{" I ", " C ", 'I', OreDictNames.craftingChest, 'C', ItemList.Hull_Bronze});
+        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Output_Bus_Primitive.get(1L), bitsd, new Object[]{" C ", " O ", 'O', OreDictNames.craftingChest, 'C', ItemList.Hull_Bronze});
+        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Output_CokeOven.get(1L), bitsd, new Object[]{" C ", " O ", 'O', GT_OreDictUnificator.get(OrePrefixes.bucket, Materials.Empty, 1L), 'C', ItemList.Casing_CokeOvenBrick});
+        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Input_Bus_CokeOven.get(1L), bitsd, new Object[]{" I ", " C ", 'I', OreDictNames.craftingChest, 'C', ItemList.Casing_CokeOvenBrick});
+        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Output_Bus_CokeOven.get(1L), bitsd, new Object[]{" C ", " O ", 'O', OreDictNames.craftingChest, 'C', ItemList.Casing_CokeOvenBrick});
+        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Input_Bus_BrickedBlastFurnace.get(1L), bitsd, new Object[]{" I ", " C ", 'I', OreDictNames.craftingChest, 'C', ItemList.Casing_Firebricks});
+        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Output_Bus_BrickedBlastFurnace.get(1L), bitsd, new Object[]{" C ", " O ", 'O', OreDictNames.craftingChest, 'C', ItemList.Casing_Firebricks});
+        GT_ModHandler.addCraftingRecipe(ItemList.Casing_Firebricks.get(1L), bitsd, new Object[] {"FF", "FF", 'F', ItemList.Firebrick.get(1)});
+        GT_ModHandler.addCraftingRecipe(ItemList.Machine_Steam_Oven.get(1L), bitsd, new Object[] {"CGC", "PMP", "CGC", 'C', ItemList.Casing_BronzePlatedBricks, 'G', OrePrefixes.gearGt.get(Materials.Invar), 'M', ItemList.Machine_HP_Furnace, 'P', ItemList.Casing_Pipe_Bronze});
+        GT_ModHandler.addCraftingRecipe(ItemList.Machine_Steam_Grinder.get(1L), bitsd, new Object[] {"CGC", "CMC", "CGC", 'C', ItemList.Casing_BronzePlatedBricks, 'G', OrePrefixes.gearGt.get(Materials.Bronze), 'M', ItemList.Machine_HP_Macerator});
     }
 
     private static void run2() {

@@ -515,20 +515,23 @@ public class GT_Loader_MetaTileEntities implements Runnable {//TODO CHECK CIRCUI
         ItemList.Hatch_Output_Bus_CokeOven.set(new GT_MetaTileEntity_Hatch_PrimitiveOutputBus(27008, "hatch.output_bus.tier.cokeoven", "Output Bus (Coke Oven)", 0).getStackForm(1L));
         ItemList.Hatch_Input_Bus_BrickedBlastFurnace.set(new GT_MetaTileEntity_Hatch_PrimitiveInputBus(27010, "hatch.input_bus.tier.brickedblastfurnace", "Input Bus (Bricked Blast Furnace)", 0).getStackForm(1L));
         ItemList.Hatch_Output_Bus_BrickedBlastFurnace.set(new GT_MetaTileEntity_Hatch_PrimitiveOutputBus(27011, "hatch.output_bus.tier.brickedblastfurnace", "Output Bus (Bricked Blast Furnace)", 0).getStackForm(1L));
+        ItemList.Super_Tank_ULV.set(new GT_MetaTileEntity_SuperTank(27012, "super.tank.tier.00", "Super Tank", 0).getStackForm(1L));
 
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Input_Steam.get(1L), bitsd, new Object[]{"PIP", "PCP", "PIP", 'P', OrePrefixes.plate.get(Materials.Bronze), 'I', OrePrefixes.pipeMedium.get(Materials.Bronze), 'C', ItemList.Hull_Bronze});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Input_Primitive.get(1L), bitsd, new Object[]{" I ", " C ", 'I', GT_OreDictUnificator.get(OrePrefixes.bucket, Materials.Empty, 1L), 'C', ItemList.Hull_Bronze});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Output_Primitive.get(1L), bitsd, new Object[]{" C ", " O ", 'O', GT_OreDictUnificator.get(OrePrefixes.bucket, Materials.Empty, 1L), 'C', ItemList.Hull_Bronze});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Input_Bus_Primitive.get(1L), bitsd, new Object[]{" I ", " C ", 'I', OreDictNames.craftingChest, 'C', ItemList.Hull_Bronze});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Output_Bus_Primitive.get(1L), bitsd, new Object[]{" C ", " O ", 'O', OreDictNames.craftingChest, 'C', ItemList.Hull_Bronze});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Output_CokeOven.get(1L), bitsd, new Object[]{" C ", " O ", 'O', GT_OreDictUnificator.get(OrePrefixes.bucket, Materials.Empty, 1L), 'C', ItemList.Casing_CokeOvenBrick});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Input_Bus_CokeOven.get(1L), bitsd, new Object[]{" I ", " C ", 'I', OreDictNames.craftingChest, 'C', ItemList.Casing_CokeOvenBrick});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Output_Bus_CokeOven.get(1L), bitsd, new Object[]{" C ", " O ", 'O', OreDictNames.craftingChest, 'C', ItemList.Casing_CokeOvenBrick});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Input_Bus_BrickedBlastFurnace.get(1L), bitsd, new Object[]{" I ", " C ", 'I', OreDictNames.craftingChest, 'C', ItemList.Casing_Firebricks});
-        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Output_Bus_BrickedBlastFurnace.get(1L), bitsd, new Object[]{" C ", " O ", 'O', OreDictNames.craftingChest, 'C', ItemList.Casing_Firebricks});
-        GT_ModHandler.addCraftingRecipe(ItemList.Casing_Firebricks.get(1L), bitsd, new Object[] {"FF", "FF", 'F', ItemList.Firebrick.get(1)});
+        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Input_Steam.get(1L), bits, new Object[]{"PIP", "PCP", "PIP", 'P', OrePrefixes.plate.get(Materials.Bronze), 'I', OrePrefixes.pipeMedium.get(Materials.Bronze), 'C', ItemList.Hull_Bronze});
+        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Input_Primitive.get(1L), bits, new Object[]{" I ", " C ", 'I', GT_OreDictUnificator.get(OrePrefixes.bucket, Materials.Empty, 1L), 'C', ItemList.Hull_Bronze});
+        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Output_Primitive.get(1L), bits, new Object[]{" C ", " O ", 'O', GT_OreDictUnificator.get(OrePrefixes.bucket, Materials.Empty, 1L), 'C', ItemList.Hull_Bronze});
+        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Input_Bus_Primitive.get(1L), bits, new Object[]{" I ", " C ", 'I', OreDictNames.craftingChest, 'C', ItemList.Hull_Bronze});
+        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Output_Bus_Primitive.get(1L), bits, new Object[]{" C ", " O ", 'O', OreDictNames.craftingChest, 'C', ItemList.Hull_Bronze});
+        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Output_CokeOven.get(1L), bits, new Object[]{" C ", " O ", 'O', GT_OreDictUnificator.get(OrePrefixes.bucket, Materials.Empty, 1L), 'C', ItemList.Casing_CokeOvenBrick});
+        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Input_Bus_CokeOven.get(1L), bits, new Object[]{" I ", " C ", 'I', OreDictNames.craftingChest, 'C', ItemList.Casing_CokeOvenBrick});
+        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Output_Bus_CokeOven.get(1L), bits, new Object[]{" C ", " O ", 'O', OreDictNames.craftingChest, 'C', ItemList.Casing_CokeOvenBrick});
+        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Input_Bus_BrickedBlastFurnace.get(1L), bits, new Object[]{" I ", " C ", 'I', OreDictNames.craftingChest, 'C', ItemList.Casing_Firebricks});
+        GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Output_Bus_BrickedBlastFurnace.get(1L), bits, new Object[]{" C ", " O ", 'O', OreDictNames.craftingChest, 'C', ItemList.Casing_Firebricks});
+        GT_ModHandler.addCraftingRecipe(ItemList.Casing_Firebricks.get(1L), bits, new Object[] {"FF", "FF", 'F', ItemList.Firebrick.get(1)});
         GT_ModHandler.addCraftingRecipe(ItemList.Machine_Steam_Oven.get(1L), bitsd, new Object[] {"CGC", "PMP", "CGC", 'C', ItemList.Casing_BronzePlatedBricks, 'G', OrePrefixes.gearGt.get(Materials.Invar), 'M', ItemList.Machine_HP_Furnace, 'P', ItemList.Casing_Firebox_Bronze});
         GT_ModHandler.addCraftingRecipe(ItemList.Machine_Steam_Grinder.get(1L), bitsd, new Object[] {"CGC", "CMC", "CGC", 'C', ItemList.Casing_BronzePlatedBricks, 'G', OrePrefixes.gearGt.get(Materials.Bronze), 'M', ItemList.Machine_HP_Macerator});
+        GT_ModHandler.addCraftingRecipe(ItemList.Super_Tank_ULV.get(1L), bitsd,  new Object[]{"DPD", "PMP", "DUD", 'U', OrePrefixes.pipeMedium.get(Materials.Bronze), 'M', ItemList.Casing_Tank_0, 'D', OrePrefixes.circuit.get(Materials.Primitive), 'P', OrePrefixes.plate.get(Materials.Steel)});
+        GT_ModHandler.addCraftingRecipe(ItemList.Casing_Tank_0.get(1L), bits, new Object[]{"PPP", "PIP", "PPP", 'P', OrePrefixes.plate.get(Materials.WroughtIron), 'I', OrePrefixes.pipeLarge.get(Materials.Bronze)});
     }
 
     private static void run2() {

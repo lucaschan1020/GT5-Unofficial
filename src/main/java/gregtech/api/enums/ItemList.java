@@ -1482,6 +1482,7 @@ public enum ItemList implements IItemContainer {
     Quantum_Chest_EV,
     Quantum_Chest_IV,
 
+    Super_Tank_ULV,
     Super_Tank_LV,
     Super_Tank_MV,
     Super_Tank_HV,

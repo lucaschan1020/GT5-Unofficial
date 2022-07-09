@@ -371,6 +371,8 @@ public interface IGT_RecipeAdder {
      */
     boolean addWiremillRecipe(ItemStack aInput, ItemStack aOutput, int aDuration, int aEUt);
 
+    boolean addCokeOvenRecipes(ItemStack aInput, ItemStack aOutput, FluidStack aFluidOutput, int aDuration);
+
     /**
      * Adds a Polariser Recipe
      *

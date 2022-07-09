@@ -507,7 +507,7 @@ public class GT_CraftingRecipeLoader implements Runnable {
         ItemStack[] tChestAndTank = new ItemStack[]{
                 ItemList.Super_Chest_EV.get(1), ItemList.Super_Chest_IV.get(1), ItemList.Super_Chest_HV.get(1), ItemList.Super_Chest_MV.get(1), ItemList.Super_Chest_LV.get(1),
                 ItemList.Quantum_Chest_EV.get(1), ItemList.Quantum_Chest_IV.get(1), ItemList.Quantum_Chest_HV.get(1), ItemList.Quantum_Chest_MV.get(1), ItemList.Quantum_Chest_LV.get(1),
-                ItemList.Super_Tank_EV.get(1), ItemList.Super_Tank_IV.get(1), ItemList.Super_Tank_HV.get(1), ItemList.Super_Tank_MV.get(1), ItemList.Super_Tank_LV.get(1),
+                ItemList.Super_Tank_EV.get(1), ItemList.Super_Tank_IV.get(1), ItemList.Super_Tank_HV.get(1), ItemList.Super_Tank_MV.get(1), ItemList.Super_Tank_LV.get(1), ItemList.Super_Tank_ULV.get(1),
                 ItemList.Quantum_Tank_EV.get(1), ItemList.Quantum_Tank_IV.get(1), ItemList.Quantum_Tank_HV.get(1), ItemList.Quantum_Tank_MV.get(1), ItemList.Quantum_Tank_LV.get(1)
         };
         for (ItemStack tItem : tChestAndTank) {

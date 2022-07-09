@@ -36,6 +36,8 @@ public class GT_MetaTileEntity_SuperTank extends GT_MetaTileEntity_BasicTank {
 
     private static int commonSizeCompute(int tier) {
         switch (tier) {
+            case 0:
+                return 1000000;
             case 1:
                 return 4000000;
             case 2:

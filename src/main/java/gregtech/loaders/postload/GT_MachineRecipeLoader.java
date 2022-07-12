@@ -1922,7 +1922,6 @@ public class GT_MachineRecipeLoader implements Runnable {
             Materials.Barite.getDust(4), Materials.Chromite.getDust(4), Materials.Ilmenite.getDust(4),
             new int[]{10000, 10000, 10000, 10000, 7500, 5000}, 13125, 1920);
 
-        GT_Values.RA.addCokeOvenRecipes(GT_OreDictUnificator.get(OrePrefixes.log, Materials.Wood, 1L), GT_OreDictUnificator.get(OrePrefixes.gem, Materials.Charcoal, 1L), Materials.Creosote.getFluid(250), 1800);
         this.run3();
 
         GT_Utility.removeSimpleIC2MachineRecipe(new ItemStack(Blocks.cobblestone), GT_ModHandler.getMaceratorRecipeList(), GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Stone, 1L));

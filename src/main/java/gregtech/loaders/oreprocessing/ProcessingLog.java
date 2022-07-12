@@ -105,5 +105,6 @@ public class ProcessingLog implements gregtech.api.interfaces.IOreRecipeRegistra
         GT_Values.RA.addPyrolyseRecipe(GT_Utility.copyAmount(16L, logStack), Materials.Nitrogen.getGas(1000), 8, Materials.Charcoal.getGems(20), Materials.WoodVinegar.getFluid(3000), 320, 96);
         GT_Values.RA.addPyrolyseRecipe(GT_Utility.copyAmount(16L, logStack), GT_Values.NF, 9, Materials.Charcoal.getGems(20), Materials.WoodTar.getFluid(1500), 640, 64);
         GT_Values.RA.addPyrolyseRecipe(GT_Utility.copyAmount(16L, logStack), Materials.Nitrogen.getGas(1000), 10, Materials.Charcoal.getGems(20), Materials.WoodTar.getFluid(1500), 320, 96);
+        GT_Values.RA.addCokeOvenRecipes(GT_Utility.copyAmount(1L, logStack), GT_OreDictUnificator.get(OrePrefixes.gem, Materials.Charcoal, 1L), Materials.Creosote.getFluid(250), 1800);
     }
 }

@@ -2955,14 +2955,14 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
         ItemList.Conveyor_Module_LV.set(addItem(
                 630,
                 "Conveyor Module (LV)",
-                "1 stack every 20 secs (as Cover)",
+                "8/64 stack every 2.5 secs (as Cover)",
                 new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 1L),
                 new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 1L),
                 new TC_Aspects.TC_AspectStack(TC_Aspects.ITER, 1L)));
         ItemList.Conveyor_Module_MV.set(addItem(
                 631,
                 "Conveyor Module (MV)",
-                "1 stack every 5 secs (as Cover)",
+                "32/64 stack every 2.5 secs (as Cover)",
                 new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 2L),
                 new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 2L),
                 new TC_Aspects.TC_AspectStack(TC_Aspects.ITER, 2L)));
@@ -3135,11 +3135,11 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
         GregTech_API.registerCover(
                 ItemList.Conveyor_Module_LV.get(1L),
                 TextureFactory.of(MACHINE_CASINGS[1][0], TextureFactory.of(OVERLAY_CONVEYOR)),
-                new GT_Cover_Conveyor(400, 1, TextureFactory.of(OVERLAY_CONVEYOR)));
+                new GT_Cover_Conveyor(50, 1, 8, TextureFactory.of(OVERLAY_CONVEYOR)));
         GregTech_API.registerCover(
                 ItemList.Conveyor_Module_MV.get(1L),
                 TextureFactory.of(MACHINE_CASINGS[2][0], TextureFactory.of(OVERLAY_CONVEYOR)),
-                new GT_Cover_Conveyor(100, 1, TextureFactory.of(OVERLAY_CONVEYOR)));
+                new GT_Cover_Conveyor(50, 1, 32, TextureFactory.of(OVERLAY_CONVEYOR)));
         GregTech_API.registerCover(
                 ItemList.Conveyor_Module_HV.get(1L),
                 TextureFactory.of(MACHINE_CASINGS[3][0], TextureFactory.of(OVERLAY_CONVEYOR)),
@@ -3176,7 +3176,7 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
         ItemList.Robot_Arm_LV.set(addItem(
                 650,
                 "Robot Arm (LV)",
-                "1 stack every 20 secs (as Cover)/n " + RAText,
+                "8/64 stack every 2.5 secs (as Cover)/n " + RAText,
                 new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 1L),
                 new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 2L),
                 new TC_Aspects.TC_AspectStack(TC_Aspects.MOTUS, 1L),
@@ -3184,7 +3184,7 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
         ItemList.Robot_Arm_MV.set(addItem(
                 651,
                 "Robot Arm (MV)",
-                "1 stack every 5 secs (as Cover)/n " + RAText,
+                "32/64 stack every 2.5 secs (as Cover)/n " + RAText,
                 new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 2L),
                 new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 4L),
                 new TC_Aspects.TC_AspectStack(TC_Aspects.MOTUS, 2L),

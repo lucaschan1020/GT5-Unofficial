@@ -2356,7 +2356,7 @@ public class BaseMetaTileEntity extends CommonMetaTileEntity
     @Override
     @Optional.Method(modid = "appliedenergistics2")
     public IGridNode getGridNode(ForgeDirection forgeDirection) {
-        if (mFacing != forgeDirection.ordinal()) return null;
+//        if (mFacing != forgeDirection.ordinal()) return null;
         final AENetworkProxy gp = getProxy();
         return gp != null ? gp.getNode() : null;
     }

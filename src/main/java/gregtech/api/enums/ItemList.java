@@ -756,6 +756,9 @@ public enum ItemList implements IItemContainer {
     Machine_Bronze_AlloySmelter,
     Machine_Bronze_BlastFurnace,
     Machine_Bricked_BlastFurnace,
+    Machine_Coke_Oven,
+    Machine_Steam_Oven,
+    Machine_Steam_Grinder,
     Machine_Steel_Boiler_Lava,
     Machine_Steel_Boiler,
     Machine_HP_Furnace,
@@ -844,6 +847,7 @@ public enum ItemList implements IItemContainer {
     Casing_Advanced_Rhodium_Palladium,
     Casing_Advanced_Iridium,
     Casing_Magical,
+    Casing_CokeOvenBrick,
 
     Hull_ULV,
     Hull_LV,
@@ -991,6 +995,7 @@ public enum ItemList implements IItemContainer {
     Wireless_Dynamo_Energy_UXV,
     Wireless_Dynamo_Energy_MAX,
 
+    Hatch_Input_Primitive,
     Hatch_Input_ULV,
     Hatch_Input_LV,
     Hatch_Input_MV,
@@ -1008,6 +1013,10 @@ public enum ItemList implements IItemContainer {
     Hatch_Input_Multi_2x2_ZPM,
     Hatch_Input_Multi_2x2_UV,
 
+    Hatch_Input_Steam,
+    Hatch_Input_Bus_CokeOven,
+    Hatch_Input_Bus_BrickedBlastFurnace,
+    Hatch_Input_Bus_Primitive,
     Hatch_Input_Bus_ULV,
     Hatch_Input_Bus_LV,
     Hatch_Input_Bus_MV,
@@ -1019,6 +1028,8 @@ public enum ItemList implements IItemContainer {
     Hatch_Input_Bus_UV,
     Hatch_Input_Bus_MAX,
 
+    Hatch_Output_CokeOven,
+    Hatch_Output_Primitive,
     Hatch_Output_ULV,
     Hatch_Output_LV,
     Hatch_Output_MV,
@@ -1030,6 +1041,10 @@ public enum ItemList implements IItemContainer {
     Hatch_Output_UV,
     Hatch_Output_MAX,
 
+    Hatch_Output_Bus_CokeOven,
+
+    Hatch_Output_Bus_BrickedBlastFurnace,
+    Hatch_Output_Bus_Primitive,
     Hatch_Output_Bus_ULV,
     Hatch_Output_Bus_LV,
     Hatch_Output_Bus_MV,
@@ -1509,6 +1524,7 @@ public enum ItemList implements IItemContainer {
     Quantum_Chest_EV,
     Quantum_Chest_IV,
 
+    Super_Tank_ULV,
     Super_Tank_LV,
     Super_Tank_MV,
     Super_Tank_HV,

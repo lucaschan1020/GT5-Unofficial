@@ -1725,6 +1725,21 @@ public class GT_Recipe implements Comparable<GT_Recipe> {
                 E,
                 true,
                 true);
+        public static final GT_Recipe_Map sCokeOvenRecipes = new GT_Recipe_Map(
+            new HashSet<>(150),
+            "gt.recipe.primitivecokeoven",
+            "Coke Oven",
+            null, RES_PATH_GUI + "basicmachines/Default",
+            1,
+            1,
+            1,
+            0,
+            1,
+            E,
+            1,
+            E,
+            true,
+            true);
         public static final GT_Recipe_Map sBenderRecipes = new GT_Recipe_Map(
                 new HashSet<>(5000),
                 "gt.recipe.metalbender",

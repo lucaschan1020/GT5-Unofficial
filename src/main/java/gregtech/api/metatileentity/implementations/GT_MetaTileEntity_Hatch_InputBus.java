@@ -19,9 +19,13 @@ import java.util.HashMap;
 import java.util.List;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.StatCollector;
+
+import static gregtech.api.enums.Textures.BlockIcons.*;
+import static gregtech.api.util.GT_Utility.moveMultipleItemStacks;
 
 public class GT_MetaTileEntity_Hatch_InputBus extends GT_MetaTileEntity_Hatch implements IConfigurationCircuitSupport {
     public GT_Recipe_Map mRecipeMap = null;
@@ -164,6 +168,12 @@ public class GT_MetaTileEntity_Hatch_InputBus extends GT_MetaTileEntity_Hatch im
 
     @Override
     public void onPostTick(IGregTechTileEntity aBaseMetaTileEntity, long aTimer) {
+        if (aBaseMetaTileEntity.isServerSide() && aBaseMetaTileEntity.isAllowedToWork() && (aTimer & 0x7) == 0) {
+            IInventory tTileEntity = aBaseMetaTileEntity.getIInventoryAtSide(aBaseMetaTileEntity.getFrontFacing());
+            if (tTileEntity != null) {
+                moveMultipleItemStacks(tTileEntity, aBaseMetaTileEntity, aBaseMetaTileEntity.getBackFacing(), aBaseMetaTileEntity.getFrontFacing(), null, false, (byte) 64, (byte) 1, (byte) 64, (byte) 1, tTileEntity.getSizeInventory());
+            }
+        }
         if (aBaseMetaTileEntity.isServerSide() && aBaseMetaTileEntity.hasInventoryBeenModified()) {
             updateSlots();
         }

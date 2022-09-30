@@ -1,0 +1,14 @@
+- [x] Coke Oven Multi
+- [x] Steam Macerator Multi
+- [x] Steam Furnace Multi
+- [x] Faster conveyor belt tick rate
+- [x] BBF optional hatch (mandatory due to tight couple on existing code)
+- [x] Auto Input hatch
+- [ ] Better crops
+- [x] Tank auto void
+- [x] Tank auto output
+- [x] Machine Hull supports ME pass through
+- [x] Better casing yield (1 -> 2)
+- [ ] Add recipe for new multiblocks
+- [ ] Tank fluid lock in fluid slot bug
+- [x] Oil drill does not deplete

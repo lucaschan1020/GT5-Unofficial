@@ -3163,7 +3163,7 @@ public class GT_MachineRecipeLoader implements Runnable {
                     GT_Utility.getIntegratedCircuit(3)
                 },
                 GT_Values.NF,
-                ItemList.Casing_Gearbox_TungstenSteel.get(1L),
+                ItemList.Casing_Gearbox_TungstenSteel.get(2L),
                 200,
                 30);
 
@@ -8747,58 +8747,76 @@ public class GT_MachineRecipeLoader implements Runnable {
                 ItemList.Casing_MAX.get(1L),
                 50,
                 16);
-        GT_Values.RA.addAssemblerRecipe(
+        GT_Values.RA.addAssemblerRecipe(new ItemStack[] {
                 GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Invar, 6L),
                 GT_OreDictUnificator.get(OrePrefixes.frameGt, Materials.Invar, 1L),
-                ItemList.Casing_HeatProof.get(1L),
+                GT_Utility.getIntegratedCircuit(1)},
+                GT_Values.NF,
+                ItemList.Casing_HeatProof.get(2L),
                 50,
                 16);
-        GT_Values.RA.addAssemblerRecipe(
+        GT_Values.RA.addAssemblerRecipe(new ItemStack[] {
                 GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Steel, 6L),
                 GT_OreDictUnificator.get(OrePrefixes.frameGt, Materials.Steel, 1L),
-                ItemList.Casing_SolidSteel.get(1L),
+                GT_Utility.getIntegratedCircuit(1)},
+                GT_Values.NF,
+                ItemList.Casing_SolidSteel.get(2L),
                 50,
                 16);
-        GT_Values.RA.addAssemblerRecipe(
+        GT_Values.RA.addAssemblerRecipe(new ItemStack[] {
                 GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Aluminium, 6L),
                 GT_OreDictUnificator.get(OrePrefixes.frameGt, Materials.Aluminium, 1L),
-                ItemList.Casing_FrostProof.get(1L),
+                GT_Utility.getIntegratedCircuit(1)},
+                GT_Values.NF,
+                ItemList.Casing_FrostProof.get(2L),
                 50,
                 16);
-        GT_Values.RA.addAssemblerRecipe(
+        GT_Values.RA.addAssemblerRecipe(new ItemStack[] {
                 GT_OreDictUnificator.get(OrePrefixes.plate, Materials.TungstenSteel, 6L),
                 GT_OreDictUnificator.get(OrePrefixes.frameGt, Materials.TungstenSteel, 1L),
-                ItemList.Casing_RobustTungstenSteel.get(1L),
+                GT_Utility.getIntegratedCircuit(1)},
+                GT_Values.NF,
+                ItemList.Casing_RobustTungstenSteel.get(2L),
                 50,
                 16);
-        GT_Values.RA.addAssemblerRecipe(
+        GT_Values.RA.addAssemblerRecipe(new ItemStack[] {
                 GT_OreDictUnificator.get(OrePrefixes.plate, Materials.StainlessSteel, 6L),
                 GT_OreDictUnificator.get(OrePrefixes.frameGt, Materials.StainlessSteel, 1L),
-                ItemList.Casing_CleanStainlessSteel.get(1L),
+                GT_Utility.getIntegratedCircuit(1)},
+                GT_Values.NF,
+                ItemList.Casing_CleanStainlessSteel.get(2L),
                 50,
                 16);
-        GT_Values.RA.addAssemblerRecipe(
+        GT_Values.RA.addAssemblerRecipe(new ItemStack[] {
                 GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Titanium, 6L),
                 GT_OreDictUnificator.get(OrePrefixes.frameGt, Materials.Titanium, 1L),
-                ItemList.Casing_StableTitanium.get(1L),
+                GT_Utility.getIntegratedCircuit(1)},
+                GT_Values.NF,
+                ItemList.Casing_StableTitanium.get(2L),
                 50,
                 16);
-        GT_Values.RA.addAssemblerRecipe(
+        GT_Values.RA.addAssemblerRecipe(new ItemStack[] {
                 GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Osmiridium, 6L),
                 GT_OreDictUnificator.get(OrePrefixes.frameGt, Materials.Osmiridium, 1L),
-                ItemList.Casing_MiningOsmiridium.get(1L),
+                GT_Utility.getIntegratedCircuit(1)},
+                GT_Values.NF,
+                ItemList.Casing_MiningOsmiridium.get(2L),
                 50,
                 16);
-        GT_Values.RA.addAssemblerRecipe(
+        GT_Values.RA.addAssemblerRecipe(new ItemStack[] {
                 GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Neutronium, 6L),
                 GT_OreDictUnificator.get(OrePrefixes.frameGt, Materials.Neutronium, 1L),
-                ItemList.Casing_MiningNeutronium.get(1L),
+                GT_Utility.getIntegratedCircuit(1)},
+                GT_Values.NF,
+                ItemList.Casing_MiningNeutronium.get(2L),
                 50,
                 16);
-        GT_Values.RA.addAssemblerRecipe(
+        GT_Values.RA.addAssemblerRecipe(new ItemStack[] {
                 GT_OreDictUnificator.get(OrePrefixes.plate, Materials.BlackPlutonium, 6L),
                 GT_OreDictUnificator.get(OrePrefixes.frameGt, Materials.BlackPlutonium, 1L),
-                ItemList.Casing_MiningBlackPlutonium.get(1L),
+                GT_Utility.getIntegratedCircuit(1)},
+                GT_Values.NF,
+                ItemList.Casing_MiningBlackPlutonium.get(2L),
                 50,
                 16);
         GT_Values.RA.addAssemblerRecipe(
@@ -8815,28 +8833,63 @@ public class GT_MachineRecipeLoader implements Runnable {
                 ItemList.Casing_Fusion2.get(1L),
                 200,
                 30720);
-        GT_Values.RA.addAssemblerRecipe(
+        GT_Values.RA.addAssemblerRecipe(new ItemStack[] {
                 GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Magnalium, 6L),
                 GT_OreDictUnificator.get(OrePrefixes.frameGt, Materials.BlueSteel, 1L),
+                GT_Utility.getIntegratedCircuit(1)},
+                GT_Values.NF,
                 ItemList.Casing_Turbine.get(1L),
                 50,
                 16);
-        GT_Values.RA.addAssemblerRecipe(
+        GT_Values.RA.addAssemblerRecipe(new ItemStack[] {
                 GT_OreDictUnificator.get(OrePrefixes.plate, Materials.StainlessSteel, 6L),
                 ItemList.Casing_Turbine.get(1L),
+                GT_Utility.getIntegratedCircuit(1)},
+                GT_Values.NF,
                 ItemList.Casing_Turbine1.get(1L),
                 50,
                 16);
-        GT_Values.RA.addAssemblerRecipe(
+        GT_Values.RA.addAssemblerRecipe(new ItemStack[] {
                 GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Titanium, 6L),
                 ItemList.Casing_Turbine.get(1L),
+                GT_Utility.getIntegratedCircuit(1)},
+                GT_Values.NF,
                 ItemList.Casing_Turbine2.get(1L),
                 50,
                 16);
-        GT_Values.RA.addAssemblerRecipe(
+        GT_Values.RA.addAssemblerRecipe(new ItemStack[] {
                 GT_OreDictUnificator.get(OrePrefixes.plate, Materials.TungstenSteel, 6L),
                 ItemList.Casing_Turbine.get(1L),
+                GT_Utility.getIntegratedCircuit(1)},
+                GT_Values.NF,
                 ItemList.Casing_Turbine3.get(1L),
+                50,
+                16);
+        GT_Values.RA.addAssemblerRecipe(new ItemStack[] {
+                GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Bronze, 4L),
+                GT_OreDictUnificator.get(OrePrefixes.gearGt, Materials.Bronze, 2L),
+                GT_OreDictUnificator.get(OrePrefixes.frameGt, Materials.Bronze, 1L),
+                GT_Utility.getIntegratedCircuit(2)},
+                GT_Values.NF,
+                ItemList.Casing_Gearbox_Bronze.get(2L),
+                50,
+                16);
+        GT_Values.RA.addAssemblerRecipe(new ItemStack[] {
+                GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Steel, 4L),
+                GT_OreDictUnificator.get(OrePrefixes.gearGt, Materials.Steel, 2L),
+                GT_OreDictUnificator.get(OrePrefixes.frameGt, Materials.Steel, 1L),
+                GT_Utility.getIntegratedCircuit(2)},
+                GT_Values.NF,
+                ItemList.Casing_Gearbox_Steel.get(2L),
+                50,
+                16);
+        GT_Values.RA.addAssemblerRecipe(new ItemStack[] {
+                GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Steel, 4L),
+                GT_OreDictUnificator.get(OrePrefixes.gearGt, Materials.Titanium, 2L),
+                GT_OreDictUnificator.get(OrePrefixes.frameGt, Materials.Titanium, 1L),
+                GT_Utility.getIntegratedCircuit(2)},
+                GT_Values.NF,
+                ItemList.Casing_Gearbox_Titanium.get(2L),
                 50,
                 16);
         GT_Values.RA.addAssemblerRecipe(
@@ -22848,5 +22901,8 @@ public class GT_MachineRecipeLoader implements Runnable {
                     100,
                     600);
         }
+
+        GT_Values.RA.addCokeOvenRecipes(GT_OreDictUnificator.get(OrePrefixes.gem, Materials.Coal, 1L), RailcraftToolItems.getCoalCoke(1), Materials.Creosote.getFluid(500), 1800);
+        GT_Values.RA.addCokeOvenRecipes(Materials.Coal.getBlocks(1), EnumCube.COKE_BLOCK.getItem(1), Materials.Creosote.getFluid(4500), 16200);
     }
 }

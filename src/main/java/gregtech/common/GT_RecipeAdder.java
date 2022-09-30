@@ -1158,6 +1158,11 @@ public class GT_RecipeAdder implements IGT_RecipeAdder {
         return true;
     }
 
+    public boolean addCokeOvenRecipes(ItemStack aInput, ItemStack aOutput, FluidStack aFluidOutput, int aDuration) {
+        GT_Recipe.GT_Recipe_Map.sCokeOvenRecipes.addRecipe(true, new ItemStack[]{aInput}, new ItemStack[]{aOutput}, null, null, null, new FluidStack[]{aFluidOutput}, aDuration, 0, 0);
+        return true;
+    }
+
     @Override
     public boolean addPolarizerRecipe(ItemStack aInput, ItemStack aOutput, int aDuration, int aEUt) {
         if ((aInput == null) || (aOutput == null)) {

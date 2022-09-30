@@ -310,5 +310,10 @@ public class ProcessingLog implements gregtech.api.interfaces.IOreRecipeRegistra
                 Materials.WoodTar.getFluid(1500),
                 320,
                 96);
+        GT_Values.RA.addCokeOvenRecipes(
+            GT_Utility.copyAmount(1L, logStack),
+            GT_OreDictUnificator.get(OrePrefixes.gem, Materials.Charcoal, 1L),
+            Materials.Creosote.getFluid(250),
+            1800);
     }
 }

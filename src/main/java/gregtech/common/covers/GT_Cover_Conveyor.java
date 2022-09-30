@@ -20,6 +20,7 @@ import net.minecraftforge.fluids.Fluid;
 public class GT_Cover_Conveyor extends GT_CoverBehavior {
     public final int mTickRate;
     private final int mMaxStacks;
+    private final int mMaxStackSize;
 
     /**
      * @deprecated use {@link #GT_Cover_Conveyor(int aTickRate, int maxStacks, ITexture coverTexture)} instead
@@ -41,6 +42,14 @@ public class GT_Cover_Conveyor extends GT_CoverBehavior {
         super(coverTexture);
         this.mTickRate = aTickRate;
         this.mMaxStacks = maxStacks;
+        this.mMaxStackSize = 64;
+    }
+
+    public GT_Cover_Conveyor(int aTickRate, int maxStacks, int aMaxStackSize) {
+        super(null);
+        this.mTickRate = aTickRate;
+        this.mMaxStacks = maxStacks;
+        this.mMaxStackSize = aMaxStackSize;
     }
 
     @Override
@@ -72,7 +81,7 @@ public class GT_Cover_Conveyor extends GT_CoverBehavior {
                 false,
                 (byte) 64,
                 (byte) 1,
-                (byte) 64,
+                (byte) this.mMaxStackSize,
                 (byte) 1,
                 this.mMaxStacks);
 

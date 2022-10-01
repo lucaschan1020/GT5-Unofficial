@@ -372,10 +372,10 @@ public abstract class GT_MetaTileEntity_DigitalTankBase extends GT_MetaTileEntit
     public void onPostTick(IGregTechTileEntity aBaseMetaTileEntity, long aTick) {
         super.onPostTick(aBaseMetaTileEntity, aTick);
         if (aBaseMetaTileEntity.isServerSide()) {
-            if (mOutputFluid && getDrainableStack() != null && (aTick % 20 == 0)) {
+            if (mOutputFluid && getDrainableStack() != null && (aTick % 10 == 0)) {
                 IFluidHandler tTank = aBaseMetaTileEntity.getITankContainerAtSide(aBaseMetaTileEntity.getFrontFacing());
                 if (tTank != null) {
-                    FluidStack tDrained = drain(commonSizeCompute(mTier) / 100, false);
+                    FluidStack tDrained = drain(commonSizeCompute(mTier) / 10, false);
                     if (tDrained != null) {
                         int tFilledAmount = tTank.fill(
                                 ForgeDirection.getOrientation(aBaseMetaTileEntity.getBackFacing()), tDrained, false);

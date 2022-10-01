@@ -1,5 +1,3 @@
-GT_Container_StorageTank.java
-GT_GUIContainer_StorageTank.java
 GT_MetaTileEntity_Hatch_PrimitiveInput.java
 GT_MetaTileEntity_Hatch_PrimitiveInputBus.java
 GT_MetaTileEntity_Hatch_PrimitiveOutput.java

@@ -2947,19 +2947,64 @@ public class GT_Loader_MetaTileEntities implements Runnable { // TODO CHECK CIRC
         GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Input_Bus_BrickedBlastFurnace.get(1L), bits, new Object[] {
             " I ",
             " C ",
-            'I', OreDictNames.craftingChest, 'C', ItemList.Casing_Firebricks});
+            'I',
+            OreDictNames.craftingChest,
+            'C',
+            ItemList.Casing_Firebricks});
         GT_ModHandler.addCraftingRecipe(ItemList.Hatch_Output_Bus_BrickedBlastFurnace.get(1L), bits, new Object[] {
-            " C ", " O ", 'O', OreDictNames.craftingChest, 'C', ItemList.Casing_Firebricks});
+            " C ",
+            " O ",
+            'O',
+            OreDictNames.craftingChest,
+            'C',
+            ItemList.Casing_Firebricks});
         GT_ModHandler.addCraftingRecipe(ItemList.Casing_Firebricks.get(1L), bits, new Object[] {
-            "FF", "FF", 'F', ItemList.Firebrick.get(1)});
+            "FF",
+            "FF",
+            'F',
+            ItemList.Firebrick.get(1)});
         GT_ModHandler.addCraftingRecipe(ItemList.Machine_Steam_Oven.get(1L), bitsd, new Object[] {
-            "CGC", "PMP", "CGC", 'C', ItemList.Casing_BronzePlatedBricks, 'G', OrePrefixes.gearGt.get(Materials.Invar), 'M', ItemList.Machine_HP_Furnace, 'P', ItemList.Casing_Firebox_Bronze});
+            "CGC",
+            "PMP",
+            "CGC",
+            'C',
+            ItemList.Casing_BronzePlatedBricks,
+            'G',
+            OrePrefixes.gearGt.get(Materials.Invar),
+            'M',
+            ItemList.Machine_HP_Furnace,
+            'P',
+            ItemList.Casing_Firebox_Bronze});
         GT_ModHandler.addCraftingRecipe(ItemList.Machine_Steam_Grinder.get(1L), bitsd, new Object[] {
-            "CGC", "CMC", "CGC", 'C', ItemList.Casing_BronzePlatedBricks, 'G', OrePrefixes.gearGt.get(Materials.Bronze), 'M', ItemList.Machine_HP_Macerator});
+            "CGC",
+            "CMC",
+            "CGC",
+            'C',
+            ItemList.Casing_BronzePlatedBricks,
+            'G',
+            OrePrefixes.gearGt.get(Materials.Bronze),
+            'M',
+            ItemList.Machine_HP_Macerator});
         GT_ModHandler.addCraftingRecipe(ItemList.Super_Tank_ULV.get(1L), bitsd,  new Object[] {
-            "DPD", "PMP", "DUD", 'U', OrePrefixes.pipeMedium.get(Materials.Bronze), 'M', ItemList.Casing_Tank_0, 'D', OrePrefixes.circuit.get(Materials.Primitive), 'P', OrePrefixes.plate.get(Materials.Steel)});
+            "DPD",
+            "PMP",
+            "DUD",
+            'U',
+            OrePrefixes.pipeMedium.get(Materials.Bronze),
+            'M',
+            ItemList.Casing_Tank_0,
+            'D',
+            OrePrefixes.circuit.get(Materials.Primitive),
+            'P',
+            OrePrefixes.plate.get(Materials.Steel)});
         GT_ModHandler.addCraftingRecipe(ItemList.Casing_Tank_0.get(1L), bits, new Object[] {
-            "PPP", "PIP", "PPP", 'P', OrePrefixes.plate.get(Materials.WroughtIron), 'I', OrePrefixes.pipeLarge.get(Materials.Bronze)});
+            "PPP",
+            "PIP",
+            "PPP",
+            'P',
+            OrePrefixes.plate.get(Materials.WroughtIron),
+            'I',
+            OrePrefixes.pipeLarge.get(Materials.Bronze)});
     }
 
     private static void run2() {

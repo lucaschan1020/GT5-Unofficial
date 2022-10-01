@@ -3176,7 +3176,7 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
         ItemList.Robot_Arm_LV.set(addItem(
                 650,
                 "Robot Arm (LV)",
-                "8/64 stack every 2.5 secs (as Cover)/n " + RAText,
+                "1 stack every 20 secs (as Cover)/n " + RAText,
                 new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 1L),
                 new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 2L),
                 new TC_Aspects.TC_AspectStack(TC_Aspects.MOTUS, 1L),
@@ -3184,7 +3184,7 @@ public class GT_MetaGenerated_Item_01 extends GT_MetaGenerated_Item_X32 {
         ItemList.Robot_Arm_MV.set(addItem(
                 651,
                 "Robot Arm (MV)",
-                "32/64 stack every 2.5 secs (as Cover)/n " + RAText,
+                "1 stack every 5 secs (as Cover)/n " + RAText,
                 new TC_Aspects.TC_AspectStack(TC_Aspects.ELECTRUM, 2L),
                 new TC_Aspects.TC_AspectStack(TC_Aspects.MACHINA, 4L),
                 new TC_Aspects.TC_AspectStack(TC_Aspects.MOTUS, 2L),

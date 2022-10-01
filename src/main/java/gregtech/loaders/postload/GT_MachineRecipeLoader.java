@@ -3365,16 +3365,16 @@ public class GT_MachineRecipeLoader implements Runnable {
                 GT_Utility.getIntegratedCircuit(1),
                 new FluidStack(ItemList.sIndiumConcentrate, 8000),
                 new FluidStack(ItemList.sLeadZincSolution, 8000),
-                GT_OreDictUnificator.get(OrePrefixes.dustTiny, Materials.Indium, 1),
+                GT_OreDictUnificator.get(OrePrefixes.dustSmall, Materials.Indium, 1),
                 50,
                 600);
         GT_Values.RA.addChemicalRecipe(
-                GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Aluminium, 36),
+                GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Aluminium, 16),
                 GT_Utility.getIntegratedCircuit(9),
-                new FluidStack(ItemList.sIndiumConcentrate, 72000),
-                new FluidStack(ItemList.sLeadZincSolution, 72000),
+                new FluidStack(ItemList.sIndiumConcentrate, 32000),
+                new FluidStack(ItemList.sLeadZincSolution, 32000),
                 GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Indium, 1),
-                450,
+                200,
                 600);
 
         GT_Values.RA.addElectrolyzerRecipe(

@@ -77,7 +77,7 @@ public class GT_MetaTileEntity_BrickedBlastFurnace extends GT_MetaTileEntity_Pri
     }
 
     @Override
-    protected GT_Multiblock_Tooltip_Builder getTooltip() {
+    protected GT_Multiblock_Tooltip_Builder createTooltip() {
         if (tooltipBuilder == null) {
             tooltipBuilder = new GT_Multiblock_Tooltip_Builder();
             tooltipBuilder

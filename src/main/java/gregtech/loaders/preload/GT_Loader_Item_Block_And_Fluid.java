@@ -36,6 +36,7 @@ import gregtech.common.blocks.GT_Block_Casings4;
 import gregtech.common.blocks.GT_Block_Casings5;
 import gregtech.common.blocks.GT_Block_Casings6;
 import gregtech.common.blocks.GT_Block_Casings8;
+import gregtech.common.blocks.GT_Block_CasingsCustom;
 import gregtech.common.blocks.GT_Block_Concretes;
 import gregtech.common.blocks.GT_Block_Granites;
 import gregtech.common.blocks.GT_Block_Machines;

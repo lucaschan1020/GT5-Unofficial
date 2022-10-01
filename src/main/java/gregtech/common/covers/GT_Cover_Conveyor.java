@@ -45,8 +45,8 @@ public class GT_Cover_Conveyor extends GT_CoverBehavior {
         this.mMaxStackSize = 64;
     }
 
-    public GT_Cover_Conveyor(int aTickRate, int maxStacks, int aMaxStackSize) {
-        super(null);
+    public GT_Cover_Conveyor(int aTickRate, int maxStacks, int aMaxStackSize, ITexture coverTexture) {
+        super(coverTexture);
         this.mTickRate = aTickRate;
         this.mMaxStacks = maxStacks;
         this.mMaxStackSize = aMaxStackSize;

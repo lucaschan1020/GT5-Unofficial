@@ -351,10 +351,10 @@ public class GT_Item_Machines extends ItemBlock implements IFluidContainerItem {
                     final double tmp = (tFluidAmount - tMiddlePoint) / tSmoothingCoefficient;
                     tLasing = (int) (Math.exp(tmp) / (Math.exp(tmp) + Math.exp(-tmp)) * tMaxLastingTime);
                 }
-                tPlayer.addPotionEffect(new PotionEffect(Potion.hunger.id, tLasing, 1));
-                tPlayer.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, tLasing, 1));
-                tPlayer.addPotionEffect(new PotionEffect(Potion.digSlowdown.id, tLasing, 1));
-                tPlayer.addPotionEffect(new PotionEffect(Potion.weakness.id, tLasing, 1));
+//                tPlayer.addPotionEffect(new PotionEffect(Potion.hunger.id, tLasing, 1));
+//                tPlayer.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, tLasing, 1));
+//                tPlayer.addPotionEffect(new PotionEffect(Potion.digSlowdown.id, tLasing, 1));
+//                tPlayer.addPotionEffect(new PotionEffect(Potion.weakness.id, tLasing, 1));
             }
         }
     }

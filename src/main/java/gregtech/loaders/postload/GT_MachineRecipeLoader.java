@@ -2119,7 +2119,7 @@ public class GT_MachineRecipeLoader implements Runnable {
                 GT_OreDictUnificator.get(OrePrefixes.frameGt, Materials.BlackSteel, 1L),
                 GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Plastic, 1L),
                 Materials.Concrete.getMolten(144L),
-                ItemList.Block_Plascrete.get(1L),
+                ItemList.Block_Plascrete.get(2L),
                 200,
                 48);
 
@@ -2127,7 +2127,7 @@ public class GT_MachineRecipeLoader implements Runnable {
                 GT_OreDictUnificator.get(OrePrefixes.frameGt, Materials.BlackSteel, 1L),
                 GT_OreDictUnificator.get(OrePrefixes.dust, Materials.Plastic, 1L),
                 Materials.Concrete.getMolten(144L),
-                ItemList.Block_Plascrete.get(1L),
+                ItemList.Block_Plascrete.get(2L),
                 200,
                 48);
 

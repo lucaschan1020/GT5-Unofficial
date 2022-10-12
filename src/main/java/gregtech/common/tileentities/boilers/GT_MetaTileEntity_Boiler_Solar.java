@@ -173,7 +173,7 @@ public class GT_MetaTileEntity_Boiler_Solar extends GT_MetaTileEntity_Boiler {
         if (mFluid.isFluidEqual(GT_ModHandler.getWater(1))) {
             // produceSteam is getting called every 10 ticks
             if (mRunTimeTicks >= 0 && mRunTimeTicks < (Integer.MAX_VALUE - 10)) mRunTimeTicks += 10;
-            else mRunTimeTicks = Integer.MAX_VALUE; // Prevent Integer overflow wrap
+            else mRunTimeTicks = Integer.MAX_VALUE - 1; // Prevent Integer overflow wrap
         }
     }
 

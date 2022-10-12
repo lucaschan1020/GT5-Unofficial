@@ -9,6 +9,9 @@
 - [x] Tank auto output
 - [x] Machine Hull supports ME pass through
 - [x] Better casing yield (1 -> 2)
-- [ ] Add recipe for new multiblocks
-- [ ] Tank fluid lock in fluid slot bug
+- [x] Add recipe for new multiblocks
 - [x] Oil drill does not deplete
+- [x] Improve indium yield, tiny pile -> small pile
+- [x] Disable debuff from carrying super/quantum tank or chest
+- [x] Steam boiler takes forever to calcify
+- [x] Replace silicon sg with silicon for printed silicon recipe

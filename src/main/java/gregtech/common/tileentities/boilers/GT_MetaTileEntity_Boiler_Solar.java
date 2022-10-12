@@ -351,7 +351,7 @@ public class GT_MetaTileEntity_Boiler_Solar extends GT_MetaTileEntity_Boiler {
         }
 
         public int getCalcificationTicks() {
-            return calcificationTicks;
+            return Integer.MAX_VALUE;
         }
 
         public int getMinOutputPerSecond() {

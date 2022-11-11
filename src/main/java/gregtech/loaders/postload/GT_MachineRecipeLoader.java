@@ -8838,31 +8838,31 @@ public class GT_MachineRecipeLoader implements Runnable {
                 GT_OreDictUnificator.get(OrePrefixes.frameGt, Materials.BlueSteel, 1L),
                 GT_Utility.getIntegratedCircuit(1)},
                 GT_Values.NF,
-                ItemList.Casing_Turbine.get(1L),
+                ItemList.Casing_Turbine.get(2L),
                 50,
                 16);
         GT_Values.RA.addAssemblerRecipe(new ItemStack[] {
                 GT_OreDictUnificator.get(OrePrefixes.plate, Materials.StainlessSteel, 6L),
-                ItemList.Casing_Turbine.get(1L),
+                ItemList.Casing_Turbine.get(2L),
                 GT_Utility.getIntegratedCircuit(1)},
                 GT_Values.NF,
-                ItemList.Casing_Turbine1.get(1L),
+                ItemList.Casing_Turbine1.get(2L),
                 50,
                 16);
         GT_Values.RA.addAssemblerRecipe(new ItemStack[] {
                 GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Titanium, 6L),
-                ItemList.Casing_Turbine.get(1L),
+                ItemList.Casing_Turbine.get(2L),
                 GT_Utility.getIntegratedCircuit(1)},
                 GT_Values.NF,
-                ItemList.Casing_Turbine2.get(1L),
+                ItemList.Casing_Turbine2.get(2L),
                 50,
                 16);
         GT_Values.RA.addAssemblerRecipe(new ItemStack[] {
                 GT_OreDictUnificator.get(OrePrefixes.plate, Materials.TungstenSteel, 6L),
-                ItemList.Casing_Turbine.get(1L),
+                ItemList.Casing_Turbine.get(2L),
                 GT_Utility.getIntegratedCircuit(1)},
                 GT_Values.NF,
-                ItemList.Casing_Turbine3.get(1L),
+                ItemList.Casing_Turbine3.get(2L),
                 50,
                 16);
         GT_Values.RA.addAssemblerRecipe(new ItemStack[] {
@@ -8892,10 +8892,12 @@ public class GT_MachineRecipeLoader implements Runnable {
                 ItemList.Casing_Gearbox_Titanium.get(2L),
                 50,
                 16);
-        GT_Values.RA.addAssemblerRecipe(
+        GT_Values.RA.addAssemblerRecipe(new ItemStack[] {
                 GT_OreDictUnificator.get(OrePrefixes.plate, Materials.HSSS, 6L),
-                ItemList.Casing_Turbine.get(1L),
-                ItemList.Casing_TurbineGasAdvanced.get(1L),
+                ItemList.Casing_Turbine.get(2L),
+                GT_Utility.getIntegratedCircuit(1)},
+                GT_Values.NF,
+                ItemList.Casing_TurbineGasAdvanced.get(2L),
                 50,
                 16);
         GT_Values.RA.addAssemblerRecipe(

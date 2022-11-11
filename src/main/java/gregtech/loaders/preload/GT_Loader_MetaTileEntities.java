@@ -372,29 +372,29 @@ public class GT_Loader_MetaTileEntities implements Runnable { // TODO CHECK CIRC
             'F',
             OrePrefixes.frameGt.get(Materials.BlueSteel)
         });
-        GT_ModHandler.addCraftingRecipe(ItemList.Casing_Turbine1.get(1L), bits, new Object[] {
+        GT_ModHandler.addCraftingRecipe(ItemList.Casing_Turbine1.get(2L), bits, new Object[] {
+            "PFP",
             "PhP",
             "PFP",
-            aTextPlateWrench,
             'P',
             OrePrefixes.plate.get(Materials.StainlessSteel),
             'F',
             ItemList.Casing_Turbine
         });
-        GT_ModHandler.addCraftingRecipe(ItemList.Casing_Turbine2.get(1L), bits, new Object[] {
-            "PhP", "PFP", aTextPlateWrench, 'P', OrePrefixes.plate.get(Materials.Titanium), 'F', ItemList.Casing_Turbine
+        GT_ModHandler.addCraftingRecipe(ItemList.Casing_Turbine2.get(2L), bits, new Object[] {
+            "PFP", "PhP", "PFP", 'P', OrePrefixes.plate.get(Materials.Titanium), 'F', ItemList.Casing_Turbine
         });
-        GT_ModHandler.addCraftingRecipe(ItemList.Casing_Turbine3.get(1L), bits, new Object[] {
+        GT_ModHandler.addCraftingRecipe(ItemList.Casing_Turbine3.get(2L), bits, new Object[] {
+            "PFP",
             "PhP",
             "PFP",
-            aTextPlateWrench,
             'P',
             OrePrefixes.plate.get(Materials.TungstenSteel),
             'F',
             ItemList.Casing_Turbine
         });
-        GT_ModHandler.addCraftingRecipe(ItemList.Casing_TurbineGasAdvanced.get(1L), bits, new Object[] {
-            "PhP", "PFP", aTextPlateWrench, 'P', OrePrefixes.plate.get(Materials.HSSS), 'F', ItemList.Casing_Turbine
+        GT_ModHandler.addCraftingRecipe(ItemList.Casing_TurbineGasAdvanced.get(2L), bits, new Object[] {
+            "PFP", "PhP", "PFP", 'P', OrePrefixes.plate.get(Materials.HSSS), 'F', ItemList.Casing_Turbine
         });
         GT_ModHandler.addCraftingRecipe(ItemList.Casing_Pipe_Bronze.get(2L), bits, new Object[] {
             "PIP",

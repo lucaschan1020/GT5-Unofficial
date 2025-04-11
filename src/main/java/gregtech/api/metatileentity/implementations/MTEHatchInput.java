@@ -17,10 +17,12 @@ import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.recipe.RecipeMap;
 import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GTUtility;
+import net.minecraftforge.fluids.IFluidHandler;
 
 public class MTEHatchInput extends MTEHatch {
 
     public RecipeMap<?> mRecipeMap = null;
+    public boolean disableAutoInput = false;
 
     public MTEHatchInput(int aID, String aName, String aNameRegional, int aTier) {
         this(
@@ -108,6 +110,7 @@ public class MTEHatchInput extends MTEHatch {
     @Override
     public void saveNBTData(NBTTagCompound aNBT) {
         super.saveNBTData(aNBT);
+        aNBT.setBoolean("disableAutoInput", disableAutoInput);
         if (mRecipeMap != null) {
             aNBT.setString("recipeMap", mRecipeMap.unlocalizedName);
         }
@@ -116,6 +119,9 @@ public class MTEHatchInput extends MTEHatch {
     @Override
     public void loadNBTData(NBTTagCompound aNBT) {
         super.loadNBTData(aNBT);
+        if (aNBT.hasKey("disableAutoInput")) {
+            disableAutoInput = aNBT.getBoolean("disableAutoInput");
+        }
         mRecipeMap = RecipeMap.getFromOldIdentifier(aNBT.getString("recipeMap"));
     }
 
@@ -188,5 +194,35 @@ public class MTEHatchInput extends MTEHatch {
     @Override
     public int getTankPressure() {
         return -100;
+    }
+
+    @Override
+    public void onPostTick(IGregTechTileEntity aBaseMetaTileEntity, long aTick) {
+        super.onPostTick(aBaseMetaTileEntity, aTick);
+        if (aBaseMetaTileEntity.isServerSide() && aBaseMetaTileEntity.isAllowedToWork() && !disableAutoInput && (aTick & 0x7) == 0) {
+            IFluidHandler tTileEntity = aBaseMetaTileEntity.getITankContainerAtSide(aBaseMetaTileEntity.getFrontFacing());
+            if (tTileEntity != null) {
+                FluidStack tDrained = tTileEntity.drain(aBaseMetaTileEntity.getBackFacing(), Integer.MAX_VALUE, false);
+                if (tDrained != null) {
+                    int tFilledAmount = aBaseMetaTileEntity.fill(aBaseMetaTileEntity.getFrontFacing(), tDrained, false);
+                    if (tFilledAmount > 0) {
+                        aBaseMetaTileEntity.fill(aBaseMetaTileEntity.getFrontFacing(), tTileEntity.drain(aBaseMetaTileEntity.getBackFacing(), tFilledAmount, true), true);
+                    }
+                }
+            }
+        }
+    }
+
+    @Override
+    public boolean onWireCutterRightClick(ForgeDirection side, ForgeDirection wrenchingSide, EntityPlayer aPlayer,
+                                          float aX, float aY, float aZ, ItemStack aTool) {
+        if (!aPlayer.isSneaking()) {
+            disableAutoInput = !disableAutoInput;
+            GTUtility.sendChatToPlayer(
+                aPlayer,
+                "Auto input disabled: " + disableAutoInput);
+            return true;
+        }
+        return super.onWireCutterRightClick(side, wrenchingSide, aPlayer, aX, aY, aZ, aTool);
     }
 }

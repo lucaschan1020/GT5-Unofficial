@@ -2106,7 +2106,7 @@ public class MetaGeneratedItem01 extends MetaGeneratedItemX32 {
             addItem(
                 Conveyor_Module_LV.ID,
                 "Conveyor Module (LV)",
-                "1 stack every 20 secs (as Cover)",
+                "8/64 stack every 2.5 secs (as Cover)",
                 new TCAspects.TC_AspectStack(TCAspects.ELECTRUM, 1L),
                 new TCAspects.TC_AspectStack(TCAspects.MACHINA, 1L),
                 new TCAspects.TC_AspectStack(TCAspects.ITER, 1L)));
@@ -2114,7 +2114,7 @@ public class MetaGeneratedItem01 extends MetaGeneratedItemX32 {
             addItem(
                 Conveyor_Module_MV.ID,
                 "Conveyor Module (MV)",
-                "1 stack every 5 secs (as Cover)",
+                "32/64 stack every 2.5 secs (as Cover)",
                 new TCAspects.TC_AspectStack(TCAspects.ELECTRUM, 2L),
                 new TCAspects.TC_AspectStack(TCAspects.MACHINA, 2L),
                 new TCAspects.TC_AspectStack(TCAspects.ITER, 2L)));
@@ -3753,11 +3753,11 @@ public class MetaGeneratedItem01 extends MetaGeneratedItemX32 {
         GregTechAPI.registerCover(
             ItemList.Conveyor_Module_LV.get(1L),
             TextureFactory.of(MACHINE_CASINGS[1][0], TextureFactory.of(OVERLAY_CONVEYOR)),
-            new CoverConveyor(400, 1, TextureFactory.of(OVERLAY_CONVEYOR)));
+            new CoverConveyor(50, 1, 8, TextureFactory.of(OVERLAY_CONVEYOR)));
         GregTechAPI.registerCover(
             ItemList.Conveyor_Module_MV.get(1L),
             TextureFactory.of(MACHINE_CASINGS[2][0], TextureFactory.of(OVERLAY_CONVEYOR)),
-            new CoverConveyor(100, 1, TextureFactory.of(OVERLAY_CONVEYOR)));
+            new CoverConveyor(50, 1, 32, TextureFactory.of(OVERLAY_CONVEYOR)));
         GregTechAPI.registerCover(
             ItemList.Conveyor_Module_HV.get(1L),
             TextureFactory.of(MACHINE_CASINGS[3][0], TextureFactory.of(OVERLAY_CONVEYOR)),

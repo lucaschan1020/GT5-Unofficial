@@ -15,6 +15,7 @@ import java.util.UUID;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import gregtech.api.enums.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFire;
 import net.minecraft.entity.Entity;
@@ -53,13 +54,10 @@ import appeng.me.helpers.AENetworkProxy;
 import appeng.me.helpers.IGridProxyable;
 import appeng.tile.TileEvent;
 import appeng.tile.events.TileEventType;
+import cpw.mods.fml.common.Optional;
 import cpw.mods.fml.relauncher.ReflectionHelper;
 import gregtech.GTMod;
 import gregtech.api.GregTechAPI;
-import gregtech.api.enums.GTValues;
-import gregtech.api.enums.ItemList;
-import gregtech.api.enums.SoundResource;
-import gregtech.api.enums.Textures;
 import gregtech.api.graphs.GenerateNodeMap;
 import gregtech.api.graphs.GenerateNodeMapPower;
 import gregtech.api.graphs.Node;
@@ -2413,6 +2411,7 @@ public class BaseMetaTileEntity extends CommonMetaTileEntity
     }
 
     @Override
+    @Optional.Method(modid = Mods.Names.APPLIED_ENERGISTICS2)
     public IGridNode getGridNode(ForgeDirection forgeDirection) {
         final AENetworkProxy gp = getProxy();
         return gp != null ? gp.getNode() : null;

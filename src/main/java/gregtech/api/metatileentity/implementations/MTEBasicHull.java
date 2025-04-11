@@ -6,12 +6,23 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.ForgeDirection;
 
+import appeng.api.networking.security.BaseActionSource;
+import appeng.api.networking.security.IActionHost;
+import appeng.api.networking.security.MachineSource;
+import appeng.api.util.AECableType;
+import appeng.me.helpers.AENetworkProxy;
+import appeng.me.helpers.IGridProxyable;
+import cpw.mods.fml.common.Optional;
+import gregtech.api.enums.Mods;
 import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 
 public class MTEBasicHull extends MTEBasicTank {
+
+    private BaseActionSource requestSource = null;
+    private AENetworkProxy gridProxy = null;
 
     public MTEBasicHull(int aID, String aName, String aNameRegional, int aTier, String aDescription,
         ITexture... aTextures) {
@@ -169,5 +180,37 @@ public class MTEBasicHull extends MTEBasicTank {
     @Override
     public int getCapacity() {
         return (mTier + 1) * 1000;
+    }
+
+    @Override
+    public void onFirstTick(IGregTechTileEntity aBaseMetaTileEntity) {
+        super.onFirstTick(aBaseMetaTileEntity);
+        getProxy();
+    }
+
+    @Optional.Method(modid = Mods.Names.APPLIED_ENERGISTICS2)
+    private BaseActionSource getRequest() {
+        if (requestSource == null)
+            requestSource = new MachineSource((IActionHost)getBaseMetaTileEntity());
+        return requestSource;
+    }
+
+    @Override
+    @Optional.Method(modid = Mods.Names.APPLIED_ENERGISTICS2)
+    public AECableType getCableConnectionType(ForgeDirection forgeDirection) {
+        super.getCableConnectionType(forgeDirection);
+        return AECableType.SMART;
+    }
+
+    @Override
+    @Optional.Method(modid = Mods.Names.APPLIED_ENERGISTICS2)
+    public AENetworkProxy getProxy() {
+        if (gridProxy == null) {
+            if (getBaseMetaTileEntity() instanceof IGridProxyable) {
+                gridProxy = new AENetworkProxy((IGridProxyable)getBaseMetaTileEntity(), "proxy", getStackForm(1), true);
+                gridProxy.onReady();
+            }
+        }
+        return this.gridProxy;
     }
 }

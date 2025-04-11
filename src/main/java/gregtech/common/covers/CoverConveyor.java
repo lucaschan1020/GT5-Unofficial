@@ -27,11 +27,20 @@ public class CoverConveyor extends CoverBehavior {
 
     public final int mTickRate;
     private final int mMaxStacks;
+    private final int mMaxStackSize;
 
     public CoverConveyor(int aTickRate, int maxStacks, ITexture coverTexture) {
         super(coverTexture);
         this.mTickRate = aTickRate;
         this.mMaxStacks = maxStacks;
+        this.mMaxStackSize = 64;
+    }
+
+    public CoverConveyor(int aTickRate, int maxStacks, int aMaxStackSize, ITexture coverTexture) {
+        super(coverTexture);
+        this.mTickRate = aTickRate;
+        this.mMaxStacks = maxStacks;
+        this.mMaxStackSize = aMaxStackSize;
     }
 
     @Override
@@ -63,7 +72,7 @@ public class CoverConveyor extends CoverBehavior {
             false,
             (byte) 64,
             (byte) 1,
-            (byte) 64,
+            (byte) this.mMaxStackSize,
             (byte) 1,
             this.mMaxStacks);
 

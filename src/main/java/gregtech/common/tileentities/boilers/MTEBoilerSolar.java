@@ -164,7 +164,7 @@ public class MTEBoilerSolar extends MTEBoiler {
     }
 
     protected int getCalcificationTicks() {
-        return calcificationTicks;
+        return Integer.MAX_VALUE;
     }
 
     protected int getCooldownTicks() {

@@ -58,7 +58,7 @@ public class ChemicalRecipes implements Runnable {
             .itemInputs(
                 GTOreDictUnificator.get(OrePrefixes.dust, Materials.Aluminium, 4),
                 GTUtility.getIntegratedCircuit(1))
-            .itemOutputs(GTOreDictUnificator.get(OrePrefixes.dustTiny, Materials.Indium, 1))
+            .itemOutputs(GTOreDictUnificator.get(OrePrefixes.dustSmall, Materials.Indium, 1))
             .fluidInputs(new FluidStack(ItemList.sIndiumConcentrate, 8000))
             .fluidOutputs(new FluidStack(ItemList.sLeadZincSolution, 8000))
             .duration(2 * SECONDS + 10 * TICKS)
@@ -67,12 +67,12 @@ public class ChemicalRecipes implements Runnable {
 
         GTValues.RA.stdBuilder()
             .itemInputs(
-                GTOreDictUnificator.get(OrePrefixes.dust, Materials.Aluminium, 36),
+                GTOreDictUnificator.get(OrePrefixes.dust, Materials.Aluminium, 16),
                 GTUtility.getIntegratedCircuit(9))
             .itemOutputs(GTOreDictUnificator.get(OrePrefixes.dust, Materials.Indium, 1))
-            .fluidInputs(new FluidStack(ItemList.sIndiumConcentrate, 72000))
-            .fluidOutputs(new FluidStack(ItemList.sLeadZincSolution, 72000))
-            .duration(22 * SECONDS + 10 * TICKS)
+            .fluidInputs(new FluidStack(ItemList.sIndiumConcentrate, 32000))
+            .fluidOutputs(new FluidStack(ItemList.sLeadZincSolution, 32000))
+            .duration(8 * SECONDS + 10 * TICKS)
             .eut(TierEU.RECIPE_HV)
             .addTo(UniversalChemical);
 

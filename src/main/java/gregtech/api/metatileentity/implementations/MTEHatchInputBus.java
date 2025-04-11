@@ -3,6 +3,7 @@ package gregtech.api.metatileentity.implementations;
 import static gregtech.api.enums.Textures.BlockIcons.ITEM_IN_SIGN;
 import static gregtech.api.enums.Textures.BlockIcons.OVERLAY_PIPE_IN;
 import static gregtech.api.metatileentity.BaseTileEntity.TOOLTIP_DELAY;
+import static gregtech.api.util.GTUtility.moveMultipleItemStacks;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,8 +12,10 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.common.util.ForgeDirection;
 
@@ -48,6 +51,7 @@ public class MTEHatchInputBus extends MTEHatch implements IConfigurationCircuitS
     public boolean disableSort;
     public boolean disableFilter = true;
     public boolean disableLimited = true;
+    public boolean disableAutoInput = false;
     private int uiButtonCount = 0;
 
     public MTEHatchInputBus(int id, String name, String nameRegional, int tier) {
@@ -82,15 +86,15 @@ public class MTEHatchInputBus extends MTEHatch implements IConfigurationCircuitS
     @Override
     public ITexture[] getTexturesActive(ITexture aBaseTexture) {
         return GTMod.gregtechproxy.mRenderIndicatorsOnHatch
-            ? new ITexture[] { aBaseTexture, TextureFactory.of(OVERLAY_PIPE_IN), TextureFactory.of(ITEM_IN_SIGN) }
-            : new ITexture[] { aBaseTexture, TextureFactory.of(OVERLAY_PIPE_IN) };
+            ? new ITexture[]{aBaseTexture, TextureFactory.of(OVERLAY_PIPE_IN), TextureFactory.of(ITEM_IN_SIGN)}
+            : new ITexture[]{aBaseTexture, TextureFactory.of(OVERLAY_PIPE_IN)};
     }
 
     @Override
     public ITexture[] getTexturesInactive(ITexture aBaseTexture) {
         return GTMod.gregtechproxy.mRenderIndicatorsOnHatch
-            ? new ITexture[] { aBaseTexture, TextureFactory.of(OVERLAY_PIPE_IN), TextureFactory.of(ITEM_IN_SIGN) }
-            : new ITexture[] { aBaseTexture, TextureFactory.of(OVERLAY_PIPE_IN) };
+            ? new ITexture[]{aBaseTexture, TextureFactory.of(OVERLAY_PIPE_IN), TextureFactory.of(ITEM_IN_SIGN)}
+            : new ITexture[]{aBaseTexture, TextureFactory.of(OVERLAY_PIPE_IN)};
     }
 
     @Override
@@ -145,9 +149,39 @@ public class MTEHatchInputBus extends MTEHatch implements IConfigurationCircuitS
 
     @Override
     public void onPostTick(IGregTechTileEntity aBaseMetaTileEntity, long aTimer) {
+        if (aBaseMetaTileEntity.isServerSide() && aBaseMetaTileEntity.isAllowedToWork() && !disableAutoInput && (aTimer & 0x7) == 0) {
+            IInventory tTileEntity = aBaseMetaTileEntity.getIInventoryAtSide(aBaseMetaTileEntity.getFrontFacing());
+            if (tTileEntity != null) {
+                moveMultipleItemStacks(
+                    tTileEntity,
+                    aBaseMetaTileEntity,
+                    aBaseMetaTileEntity.getBackFacing(),
+                    aBaseMetaTileEntity.getFrontFacing(),
+                    null,
+                    false,
+                    (byte) 64,
+                    (byte) 1,
+                    (byte) 64,
+                    (byte) 1,
+                    tTileEntity.getSizeInventory());
+            }
+        }
         if (aBaseMetaTileEntity.isServerSide() && aBaseMetaTileEntity.hasInventoryBeenModified()) {
             updateSlots();
         }
+    }
+
+    @Override
+    public boolean onWireCutterRightClick(ForgeDirection side, ForgeDirection wrenchingSide, EntityPlayer aPlayer,
+                                          float aX, float aY, float aZ, ItemStack aTool) {
+        if (!aPlayer.isSneaking()) {
+            disableAutoInput = !disableAutoInput;
+            GTUtility.sendChatToPlayer(
+                aPlayer,
+                "Auto input disabled: " + disableAutoInput);
+            return true;
+        }
+        return super.onWireCutterRightClick(side, wrenchingSide, aPlayer, aX, aY, aZ, aTool);
     }
 
     public void updateSlots() {
@@ -193,6 +227,7 @@ public class MTEHatchInputBus extends MTEHatch implements IConfigurationCircuitS
         aNBT.setBoolean("disableSort", disableSort);
         aNBT.setBoolean("disableFilter", disableFilter);
         aNBT.setBoolean("disableLimited", disableLimited);
+        aNBT.setBoolean("disableAutoInput", disableAutoInput);
         if (mRecipeMap != null) {
             aNBT.setString("recipeMap", mRecipeMap.unlocalizedName);
         }
@@ -205,6 +240,9 @@ public class MTEHatchInputBus extends MTEHatch implements IConfigurationCircuitS
         disableFilter = aNBT.getBoolean("disableFilter");
         if (aNBT.hasKey("disableLimited")) {
             disableLimited = aNBT.getBoolean("disableLimited");
+        }
+        if (aNBT.hasKey("disableAutoInput")) {
+            disableAutoInput = aNBT.getBoolean("disableAutoInput");
         }
         mRecipeMap = RecipeMap.getFromOldIdentifier(aNBT.getString("recipeMap"));
     }
@@ -237,14 +275,14 @@ public class MTEHatchInputBus extends MTEHatch implements IConfigurationCircuitS
 
     @Override
     public boolean allowPullStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side,
-        ItemStack aStack) {
+                                  ItemStack aStack) {
         if (aIndex == getCircuitSlot()) return false;
         return side == getBaseMetaTileEntity().getFrontFacing();
     }
 
     @Override
     public boolean allowPutStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, ForgeDirection side,
-        ItemStack aStack) {
+                                 ItemStack aStack) {
         return side == getBaseMetaTileEntity().getFrontFacing() && aIndex != getCircuitSlot()
             && (mRecipeMap == null || disableFilter || mRecipeMap.containsInput(aStack))
             && (disableLimited || limitedAllowPutStack(aIndex, aStack));
@@ -298,12 +336,13 @@ public class MTEHatchInputBus extends MTEHatch implements IConfigurationCircuitS
             case 4 -> getBaseMetaTileEntity().add2by2Slots(builder);
             case 9 -> getBaseMetaTileEntity().add3by3Slots(builder);
             case 16 -> getBaseMetaTileEntity().add4by4Slots(builder);
-            default -> {}
+            default -> {
+            }
         }
     }
 
     private Widget createToggleButton(Supplier<Boolean> getter, Consumer<Boolean> setter, UITexture picture,
-        Supplier<GTTooltipDataCache.TooltipData> tooltipDataSupplier) {
+                                      Supplier<GTTooltipDataCache.TooltipData> tooltipDataSupplier) {
         return new CycleButtonWidget().setToggle(getter, setter)
             .setStaticTexture(picture)
             .setVariableBackground(GTUITextures.BUTTON_STANDARD_TOGGLE)
